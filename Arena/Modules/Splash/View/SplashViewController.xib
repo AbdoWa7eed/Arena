@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lexend-ExtraBold.ttf">
+            <string>Lexend-ExtraBold</string>
+        </array>
+        <array key="Lexend-Regular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashViewController" customModule="Arena" customModuleProvider="target">
+            <connections>
+                <outlet property="arenaLabel" destination="3cK-Kh-g9D" id="q4L-pw-KUH"/>
+                <outlet property="logoImageView" destination="Cq0-Hg-aeE" id="7X6-qb-RVE"/>
+                <outlet property="progressBar" destination="X4G-aa-m5L" id="k04-Uc-M1i"/>
+                <outlet property="taglineLabel" destination="1n2-Yb-iR4" id="875-PS-ywQ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Cq0-Hg-aeE">
+                    <rect key="frame" x="71" y="124" width="272" height="250"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="cUI-KG-1kS"/>
+                        <constraint firstAttribute="width" constant="272" id="v2h-FV-sVw"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEXT LEVEL SPORTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1n2-Yb-iR4">
+                    <rect key="frame" x="88" y="488" width="238" height="17.5"/>
+                    <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="X4G-aa-m5L">
+                    <rect key="frame" x="88" y="565.5" width="238" height="4"/>
+                </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARENA" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cK-Kh-g9D">
+                    <rect key="frame" x="74" y="405" width="266" height="75"/>
+                    <fontDescription key="fontDescription" name="Lexend-ExtraBold" family="Lexend" pointSize="60"/>
+                    <color key="textColor" name="PrimaryBrand"/>
+                    <color key="highlightedColor" name="PrimaryBlue"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="X4G-aa-m5L" firstAttribute="leading" secondItem="1n2-Yb-iR4" secondAttribute="leading" id="1lI-eR-cF2"/>
+                <constraint firstItem="3cK-Kh-g9D" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="74" id="4xc-xb-I2P"/>
+                <constraint firstItem="1n2-Yb-iR4" firstAttribute="trailing" secondItem="3cK-Kh-g9D" secondAttribute="trailing" constant="-14" id="6Li-CA-cai"/>
+                <constraint firstItem="3cK-Kh-g9D" firstAttribute="top" secondItem="Cq0-Hg-aeE" secondAttribute="bottom" constant="31" id="Jmh-74-B7m"/>
+                <constraint firstItem="X4G-aa-m5L" firstAttribute="trailing" secondItem="1n2-Yb-iR4" secondAttribute="trailing" id="KEi-9E-RsV"/>
+                <constraint firstItem="X4G-aa-m5L" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="L16-B2-ZbT"/>
+                <constraint firstItem="X4G-aa-m5L" firstAttribute="top" secondItem="1n2-Yb-iR4" secondAttribute="bottom" constant="60" id="OOi-TS-Lp0"/>
+                <constraint firstItem="1n2-Yb-iR4" firstAttribute="top" secondItem="3cK-Kh-g9D" secondAttribute="bottom" constant="8" id="Z2z-e7-qhO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3cK-Kh-g9D" secondAttribute="trailing" constant="74" id="i1h-13-Oa6"/>
+                <constraint firstItem="1n2-Yb-iR4" firstAttribute="leading" secondItem="3cK-Kh-g9D" secondAttribute="leading" constant="14" id="st5-GY-2tJ"/>
+                <constraint firstItem="3cK-Kh-g9D" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="vjT-lA-VHy"/>
+                <constraint firstItem="Cq0-Hg-aeE" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="xS2-Us-2uw"/>
+                <constraint firstItem="Cq0-Hg-aeE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="zq2-wF-Egt"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo" width="272" height="272"/>
+        <namedColor name="PrimaryBlue">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryBrand">
+            <color red="0.0" green="0.34509803921568627" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
