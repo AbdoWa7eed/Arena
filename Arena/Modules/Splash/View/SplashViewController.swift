@@ -7,23 +7,45 @@
 
 import UIKit
 
-import UIKit
-
-class SplashViewController: UIViewController {
+class SplashViewController: UIViewController, SplashView {
 
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var arenaLabel: UILabel!
     @IBOutlet weak var taglineLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
 
+    var presenter: SplashViewPresenter!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = AppContainer.shared.makeSplashPresenter(view: self)
         progressBar.progress = 0
+        setupArenaLabel()
+        setupTagline()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         runSplashSequence()
+    }
+
+    private func setupArenaLabel() {
+        guard let text = arenaLabel.text,
+              let font = arenaLabel.font else { return }
+
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: font,
+            .obliqueness: 0.25
+        ]
+
+        arenaLabel.attributedText = NSAttributedString(string: text, attributes: attributes)
+    }
+    
+    private func setupTagline() {
+        guard let text = taglineLabel.text else { return }
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttribute(.kern, value: 3.0, range: NSRange(location: 0, length: text.count))
+        taglineLabel.attributedText = attributedString
     }
 
     private func runSplashSequence() {
@@ -33,6 +55,7 @@ class SplashViewController: UIViewController {
         progressBar.alpha = 0
 
         logoImageView.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
+        
         UIView.animate(
             withDuration: 0.7,
             delay: 0.2,
@@ -57,15 +80,18 @@ class SplashViewController: UIViewController {
         } completion: { _ in
             UIView.animate(withDuration: 1.8, delay: 0.1, options: .curveEaseInOut) {
                 self.progressBar.setProgress(1.0, animated: true)
+            } completion: { _ in
+                self.presenter.splashAnimationDidFinish()
             }
         }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-            self.navigateNext()
-        }
+    }
+    
+    func navigateToOnboarding() {
+        // Implement navigation to Onboarding
     }
 
-    private func navigateNext() {
-        
+    func navigateToHome() {
+        // Implement navigation to Home
     }
 }
+

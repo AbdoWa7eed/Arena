@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		BCA5E86D2FA9071600C7D39E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5E86C2FA9071600C7D39E /* AppDelegate.swift */; };
 		BCA5E86F2FA9071600C7D39E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5E86E2FA9071600C7D39E /* SceneDelegate.swift */; };
-		BCA5E8712FA9071600C7D39E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5E8702FA9071600C7D39E /* ViewController.swift */; };
 		BCA5E8742FA9071600C7D39E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCA5E8722FA9071600C7D39E /* Main.storyboard */; };
 		BCA5E8772FA9071600C7D39E /* Arena.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCA5E8752FA9071600C7D39E /* Arena.xcdatamodeld */; };
 		BCA5E8792FA9071800C7D39E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCA5E8782FA9071800C7D39E /* Assets.xcassets */; };
@@ -25,6 +24,11 @@
 		BCA5E8B12FA91E3B00C7D39E /* Lexend-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCA5E8AB2FA91E3B00C7D39E /* Lexend-Regular.ttf */; };
 		BCA5E8B22FA91E3B00C7D39E /* Lexend-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCA5E8AC2FA91E3B00C7D39E /* Lexend-Medium.ttf */; };
 		BCA5E8B32FA91E3B00C7D39E /* Lexend-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCA5E8AD2FA91E3B00C7D39E /* Lexend-SemiBold.ttf */; };
+		BCFB7CEA2FAA4A6E00CE422B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7CE92FAA4A6E00CE422B /* SplashView.swift */; };
+		BCFB7CEC2FAA4AA100CE422B /* SplashPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7CEB2FAA4AA100CE422B /* SplashPresenterProtocol.swift */; };
+		BCFB7CEE2FAA4BA500CE422B /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7CED2FAA4BA500CE422B /* SplashPresenter.swift */; };
+		BCFB7CF42FAA50FE00CE422B /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7CF32FAA50FE00CE422B /* Routes.swift */; };
+		BCFB7CF62FAA512D00CE422B /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7CF52FAA512D00CE422B /* AppContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +52,6 @@
 		BCA5E8692FA9071600C7D39E /* Arena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arena.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA5E86C2FA9071600C7D39E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCA5E86E2FA9071600C7D39E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCA5E8702FA9071600C7D39E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BCA5E8732FA9071600C7D39E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCA5E8762FA9071600C7D39E /* Arena.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Arena.xcdatamodel; sourceTree = "<group>"; };
 		BCA5E8782FA9071800C7D39E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +70,11 @@
 		BCA5E8AB2FA91E3B00C7D39E /* Lexend-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend-Regular.ttf"; sourceTree = "<group>"; };
 		BCA5E8AC2FA91E3B00C7D39E /* Lexend-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend-Medium.ttf"; sourceTree = "<group>"; };
 		BCA5E8AD2FA91E3B00C7D39E /* Lexend-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lexend-SemiBold.ttf"; sourceTree = "<group>"; };
+		BCFB7CE92FAA4A6E00CE422B /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		BCFB7CEB2FAA4AA100CE422B /* SplashPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenterProtocol.swift; sourceTree = "<group>"; };
+		BCFB7CED2FAA4BA500CE422B /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
+		BCFB7CF32FAA50FE00CE422B /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		BCFB7CF52FAA512D00CE422B /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +126,10 @@
 		BCA5E86B2FA9071600C7D39E /* Arena */ = {
 			isa = PBXGroup;
 			children = (
+				BCFB7CEF2FAA50AE00CE422B /* Core */,
 				BCA5E89F2FA919B400C7D39E /* Modules */,
 				BCA5E86C2FA9071600C7D39E /* AppDelegate.swift */,
 				BCA5E86E2FA9071600C7D39E /* SceneDelegate.swift */,
-				BCA5E8702FA9071600C7D39E /* ViewController.swift */,
 				BCA5E8722FA9071600C7D39E /* Main.storyboard */,
 				BCA5E8782FA9071800C7D39E /* Assets.xcassets */,
 				BCA5E87A2FA9071800C7D39E /* LaunchScreen.storyboard */,
@@ -159,7 +167,10 @@
 		BCA5E8A02FA91A7000C7D39E /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				BCFB7CE82FAA4A4D00CE422B /* Presenter */,
 				BCA5E8A12FA91A7600C7D39E /* View */,
+				BCFB7CE92FAA4A6E00CE422B /* SplashView.swift */,
+				BCFB7CEB2FAA4AA100CE422B /* SplashPresenterProtocol.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -192,6 +203,39 @@
 				BCA5E8AD2FA91E3B00C7D39E /* Lexend-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BCFB7CE82FAA4A4D00CE422B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7CED2FAA4BA500CE422B /* SplashPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BCFB7CEF2FAA50AE00CE422B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7CF22FAA50E900CE422B /* Navigation */,
+				BCFB7CF12FAA50E400CE422B /* DI */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		BCFB7CF12FAA50E400CE422B /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7CF52FAA512D00CE422B /* AppContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		BCFB7CF22FAA50E900CE422B /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7CF32FAA50FE00CE422B /* Routes.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,9 +376,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCA5E8712FA9071600C7D39E /* ViewController.swift in Sources */,
 				BCA5E8772FA9071600C7D39E /* Arena.xcdatamodeld in Sources */,
+				BCFB7CF42FAA50FE00CE422B /* Routes.swift in Sources */,
+				BCFB7CF62FAA512D00CE422B /* AppContainer.swift in Sources */,
+				BCFB7CEE2FAA4BA500CE422B /* SplashPresenter.swift in Sources */,
+				BCFB7CEC2FAA4AA100CE422B /* SplashPresenterProtocol.swift in Sources */,
 				BCA5E86D2FA9071600C7D39E /* AppDelegate.swift in Sources */,
+				BCFB7CEA2FAA4A6E00CE422B /* SplashView.swift in Sources */,
 				BCA5E86F2FA9071600C7D39E /* SceneDelegate.swift in Sources */,
 				BCA5E8A42FA91AA900C7D39E /* SplashViewController.swift in Sources */,
 			);
