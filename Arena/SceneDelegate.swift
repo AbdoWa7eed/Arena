@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -17,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = AppRouter.makeSplash()
+        applyTheme()
         window?.makeKeyAndVisible()
     }
 
@@ -30,5 +30,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+
+    private func applyTheme() {
+        let isDark = UserDefaultsManager.shared.isDarkMode
+        window?.overrideUserInterfaceStyle = isDark ? .dark : .light
     }
 }

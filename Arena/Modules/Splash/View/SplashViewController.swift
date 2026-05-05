@@ -87,7 +87,17 @@ class SplashViewController: UIViewController, SplashView {
     }
     
     func navigateToOnboarding() {
-        // Implement navigation to Onboarding
+        let onboardingVC = AppRouter.makeOnboarding()
+        
+        if let window = view.window {
+            window.rootViewController = onboardingVC
+            
+            UIView.transition(with: window,
+                              duration: 0.3,
+                              options: .transitionCrossDissolve,
+                              animations: nil,
+                              completion: nil)
+        }
     }
 
     func navigateToHome() {
