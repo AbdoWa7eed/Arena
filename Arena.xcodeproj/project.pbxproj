@@ -29,6 +29,14 @@
 		BCFB7CEE2FAA4BA500CE422B /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7CED2FAA4BA500CE422B /* SplashPresenter.swift */; };
 		BCFB7CF42FAA50FE00CE422B /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7CF32FAA50FE00CE422B /* Routes.swift */; };
 		BCFB7CF62FAA512D00CE422B /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7CF52FAA512D00CE422B /* AppContainer.swift */; };
+		BCFB7CFB2FAA5CC000CE422B /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7CFA2FAA5CBF00CE422B /* Onboarding.storyboard */; };
+		BCFB7D012FAA69BD00CE422B /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7D002FAA69BD00CE422B /* OnboardingContentViewController.swift */; };
+		BCFB7D032FAA70DA00CE422B /* OnboardingViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7D022FAA70DA00CE422B /* OnboardingViewProtocol.swift */; };
+		BCFB7D052FAA70FA00CE422B /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7D042FAA70FA00CE422B /* OnboardingPresenter.swift */; };
+		BCFB7D072FAA715600CE422B /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7D062FAA715600CE422B /* OnboardingPage.swift */; };
+		BCFB7D0B2FAA73A600CE422B /* OnboardingPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7D0A2FAA73A600CE422B /* OnboardingPresenterProtocol.swift */; };
+		BCFB7D0C2FAA8CA600CE422B /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7CFC2FAA5CF500CE422B /* OnboardingViewController.swift */; };
+		BCFB7D0F2FAA936200CE422B /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7D0E2FAA936200CE422B /* UserDefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +83,14 @@
 		BCFB7CED2FAA4BA500CE422B /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		BCFB7CF32FAA50FE00CE422B /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		BCFB7CF52FAA512D00CE422B /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
+		BCFB7CFA2FAA5CBF00CE422B /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		BCFB7CFC2FAA5CF500CE422B /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		BCFB7D002FAA69BD00CE422B /* OnboardingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentViewController.swift; sourceTree = "<group>"; };
+		BCFB7D022FAA70DA00CE422B /* OnboardingViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewProtocol.swift; sourceTree = "<group>"; };
+		BCFB7D042FAA70FA00CE422B /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		BCFB7D062FAA715600CE422B /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
+		BCFB7D0A2FAA73A600CE422B /* OnboardingPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterProtocol.swift; sourceTree = "<group>"; };
+		BCFB7D0E2FAA936200CE422B /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +142,7 @@
 		BCA5E86B2FA9071600C7D39E /* Arena */ = {
 			isa = PBXGroup;
 			children = (
+				BCFB7D0D2FAA934E00CE422B /* Helpers */,
 				BCFB7CEF2FAA50AE00CE422B /* Core */,
 				BCA5E89F2FA919B400C7D39E /* Modules */,
 				BCA5E86C2FA9071600C7D39E /* AppDelegate.swift */,
@@ -159,6 +176,7 @@
 		BCA5E89F2FA919B400C7D39E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BCFB7CF72FAA581C00CE422B /* Onboarding */,
 				BCA5E8A02FA91A7000C7D39E /* Splash */,
 			);
 			path = Modules;
@@ -236,6 +254,44 @@
 				BCFB7CF32FAA50FE00CE422B /* Routes.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		BCFB7CF72FAA581C00CE422B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7CF92FAA5CAE00CE422B /* Presenter */,
+				BCFB7CF82FAA5CA100CE422B /* View */,
+				BCFB7D022FAA70DA00CE422B /* OnboardingViewProtocol.swift */,
+				BCFB7D062FAA715600CE422B /* OnboardingPage.swift */,
+				BCFB7D0A2FAA73A600CE422B /* OnboardingPresenterProtocol.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		BCFB7CF82FAA5CA100CE422B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7CFA2FAA5CBF00CE422B /* Onboarding.storyboard */,
+				BCFB7CFC2FAA5CF500CE422B /* OnboardingViewController.swift */,
+				BCFB7D002FAA69BD00CE422B /* OnboardingContentViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCFB7CF92FAA5CAE00CE422B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7D042FAA70FA00CE422B /* OnboardingPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BCFB7D0D2FAA934E00CE422B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7D0E2FAA936200CE422B /* UserDefaultsManager.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCFB7CFB2FAA5CC000CE422B /* Onboarding.storyboard in Resources */,
 				BCA5E8B02FA91E3B00C7D39E /* Lexend-ExtraBold.ttf in Resources */,
 				BCA5E87C2FA9071800C7D39E /* LaunchScreen.storyboard in Resources */,
 				BCA5E8AF2FA91E3B00C7D39E /* Lexend-Bold.ttf in Resources */,
@@ -376,13 +433,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCFB7D012FAA69BD00CE422B /* OnboardingContentViewController.swift in Sources */,
 				BCA5E8772FA9071600C7D39E /* Arena.xcdatamodeld in Sources */,
 				BCFB7CF42FAA50FE00CE422B /* Routes.swift in Sources */,
 				BCFB7CF62FAA512D00CE422B /* AppContainer.swift in Sources */,
 				BCFB7CEE2FAA4BA500CE422B /* SplashPresenter.swift in Sources */,
+				BCFB7D072FAA715600CE422B /* OnboardingPage.swift in Sources */,
+				BCFB7D0F2FAA936200CE422B /* UserDefaultsManager.swift in Sources */,
 				BCFB7CEC2FAA4AA100CE422B /* SplashPresenterProtocol.swift in Sources */,
+				BCFB7D0C2FAA8CA600CE422B /* OnboardingViewController.swift in Sources */,
 				BCA5E86D2FA9071600C7D39E /* AppDelegate.swift in Sources */,
+				BCFB7D052FAA70FA00CE422B /* OnboardingPresenter.swift in Sources */,
 				BCFB7CEA2FAA4A6E00CE422B /* SplashView.swift in Sources */,
+				BCFB7D0B2FAA73A600CE422B /* OnboardingPresenterProtocol.swift in Sources */,
+				BCFB7D032FAA70DA00CE422B /* OnboardingViewProtocol.swift in Sources */,
 				BCA5E86F2FA9071600C7D39E /* SceneDelegate.swift in Sources */,
 				BCA5E8A42FA91AA900C7D39E /* SplashViewController.swift in Sources */,
 			);

@@ -1,0 +1,56 @@
+{
+  "images" : [
+    {
+      "filename" : "Hero UI Preview_ Light Mode Bento Scoreboard Mockup_margin.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Hero UI Preview_ Dark Mode Bento Scoreboard Mockup_margin.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Hero UI Preview_ Light Mode Bento Scoreboard Mockup_margin@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Hero UI Preview_ Dark Mode Bento Scoreboard Mockup_margin@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Hero UI Preview_ Light Mode Bento Scoreboard Mockup_margin@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Hero UI Preview_ Dark Mode Bento Scoreboard Mockup_margin@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
