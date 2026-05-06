@@ -20,4 +20,8 @@ final class AppContainer {
     func makeOnboardingPresenter(view: OnboardingViewProtocol) -> OnboardingPresenterProtocol {
         return OnboardingPresenter(view: view, userDefaults: userDefaults)
     }
+    
+    func makeSportsPresenter(view: SportsViewProtocol) -> SportsPresenterProtocol {
+        return SportsPresenter(view: view)
+    }
 }

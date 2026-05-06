@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A6r-L8-o0B">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lexend-Bold.ttf">
+            <string>Lexend-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Favorites-->
         <scene sceneID="wo4-Oe-7jO">
@@ -25,7 +30,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I06-oC-rlF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
                         <constraints>
                             <constraint firstItem="CPB-c4-Lxx" firstAttribute="centerY" secondItem="I06-oC-rlF" secondAttribute="centerY" id="2HQ-kF-lHD"/>
                             <constraint firstItem="CPB-c4-Lxx" firstAttribute="centerX" secondItem="I06-oC-rlF" secondAttribute="centerX" id="NTm-S2-b4k"/>
@@ -42,28 +47,56 @@
         <!--Sports-->
         <scene sceneID="PkI-5F-1I3">
             <objects>
-                <viewController id="Ojk-vd-Pzt" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SportsViewController" id="Ojk-vd-Pzt" customClass="SportsViewController" customModule="Arena" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lPe-kc-bDs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sports Screen" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGn-EB-7L3">
-                                <rect key="frame" x="134" y="414" width="146.5" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LS0-YE-huC">
+                                <rect key="frame" x="0.0" y="104" width="414" height="709"/>
+                                <color key="backgroundColor" name="PrimaryBackground"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n5A-bP-ywg">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SportCell" id="oG7-GO-PPt">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Amj-wa-PM1">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arena" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqY-DH-Hbr">
+                                <rect key="frame" x="20" y="44" width="394" height="60"/>
+                                <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="48"/>
+                                <color key="textColor" name="PrimaryBrand"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6e0-o7-cP8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
                         <constraints>
-                            <constraint firstItem="yGn-EB-7L3" firstAttribute="centerY" secondItem="6e0-o7-cP8" secondAttribute="centerY" id="HWI-Li-Y2i"/>
-                            <constraint firstItem="yGn-EB-7L3" firstAttribute="centerX" secondItem="6e0-o7-cP8" secondAttribute="centerX" id="P8e-9x-x9d"/>
+                            <constraint firstItem="6e0-o7-cP8" firstAttribute="trailing" secondItem="eqY-DH-Hbr" secondAttribute="trailing" id="5il-gd-4Zs"/>
+                            <constraint firstItem="eqY-DH-Hbr" firstAttribute="top" secondItem="6e0-o7-cP8" secondAttribute="top" id="Fbc-8X-CpY"/>
+                            <constraint firstItem="eqY-DH-Hbr" firstAttribute="leading" secondItem="6e0-o7-cP8" secondAttribute="leading" constant="20" id="i8V-cp-F3X"/>
+                            <constraint firstItem="6e0-o7-cP8" firstAttribute="trailing" secondItem="LS0-YE-huC" secondAttribute="trailing" id="pAl-0s-AOe"/>
+                            <constraint firstItem="LS0-YE-huC" firstAttribute="leading" secondItem="6e0-o7-cP8" secondAttribute="leading" id="rM8-ZF-1xH"/>
+                            <constraint firstItem="LS0-YE-huC" firstAttribute="top" secondItem="eqY-DH-Hbr" secondAttribute="bottom" id="yxG-Qn-L97"/>
+                            <constraint firstItem="6e0-o7-cP8" firstAttribute="bottom" secondItem="LS0-YE-huC" secondAttribute="bottom" id="zW4-4J-YHr"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sports" image="sportscourt" catalog="system" id="gk3-bO-0ha">
                         <color key="badgeColor" name="PrimaryBlue"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="collectionView" destination="LS0-YE-huC" id="4Vb-92-lm0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bn1-Yn-rZO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -91,11 +124,14 @@
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="sportscourt" catalog="system" width="128" height="84"/>
+        <namedColor name="PrimaryBackground">
+            <color red="0.96862745098039216" green="0.97647058823529409" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PrimaryBlue">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="PrimaryBrand">
+            <color red="0.0" green="0.34509803921568627" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
