@@ -121,7 +121,6 @@
 		BCA5E8602FA9071600C7D39E = {
 			isa = PBXGroup;
 			children = (
-				BCA5E8A62FA91DF800C7D39E /* Resources */,
 				BCA5E86B2FA9071600C7D39E /* Arena */,
 				BCA5E8852FA9071800C7D39E /* ArenaTests */,
 				BCA5E88F2FA9071800C7D39E /* ArenaUITests */,
@@ -142,6 +141,7 @@
 		BCA5E86B2FA9071600C7D39E /* Arena */ = {
 			isa = PBXGroup;
 			children = (
+				BCA5E8A62FA91DF800C7D39E /* Resources */,
 				BCFB7D0D2FAA934E00CE422B /* Helpers */,
 				BCFB7CEF2FAA50AE00CE422B /* Core */,
 				BCA5E89F2FA919B400C7D39E /* Modules */,
