@@ -94,7 +94,7 @@ class OnboardingViewController: UIViewController,  UIPageViewControllerDataSourc
         pageControl.currentPage = index
     }
 
-    func navigateToSportsScreen() {
-        // add navigation logic here
+    func navigateToHome() {
+        AppRouter.setRootViewController(AppRouter.makeMainApp())
     }
 }

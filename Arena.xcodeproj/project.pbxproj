@@ -118,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC82D0CF2FAB61410006A28F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCA5E8722FA9071600C7D39E /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BCA5E8602FA9071600C7D39E = {
 			isa = PBXGroup;
 			children = (
@@ -142,12 +150,11 @@
 			isa = PBXGroup;
 			children = (
 				BCA5E8A62FA91DF800C7D39E /* Resources */,
-				BCFB7D0D2FAA934E00CE422B /* Helpers */,
 				BCFB7CEF2FAA50AE00CE422B /* Core */,
 				BCA5E89F2FA919B400C7D39E /* Modules */,
-				BCA5E86C2FA9071600C7D39E /* AppDelegate.swift */,
+				BC82D0CF2FAB61410006A28F /* Views */,
 				BCA5E86E2FA9071600C7D39E /* SceneDelegate.swift */,
-				BCA5E8722FA9071600C7D39E /* Main.storyboard */,
+				BCA5E86C2FA9071600C7D39E /* AppDelegate.swift */,
 				BCA5E8782FA9071800C7D39E /* Assets.xcassets */,
 				BCA5E87A2FA9071800C7D39E /* LaunchScreen.storyboard */,
 				BCA5E87D2FA9071800C7D39E /* Info.plist */,
@@ -234,6 +241,7 @@
 		BCFB7CEF2FAA50AE00CE422B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BCFB7D0D2FAA934E00CE422B /* Helpers */,
 				BCFB7CF22FAA50E900CE422B /* Navigation */,
 				BCFB7CF12FAA50E400CE422B /* DI */,
 			);
