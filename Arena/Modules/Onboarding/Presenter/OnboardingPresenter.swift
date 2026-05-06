@@ -43,7 +43,7 @@ class OnboardingPresenter: OnboardingPresenterProtocol {
             view?.updateButtonName(currentIndex == pages.count - 1)
         } else {
             userDefaults.hasSeenOnboarding = true
-            view?.navigateToSportsScreen()
+            view?.navigateToHome()
         }
     }
 

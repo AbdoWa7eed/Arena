@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC83D2D02FAB984E0082EA1C /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D2CF2FAB984E0082EA1C /* SportsViewController.swift */; };
+		BC83D2D42FAB98DE0082EA1C /* SportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D2D22FAB98DE0082EA1C /* SportCell.swift */; };
+		BC83D2D52FAB98DE0082EA1C /* SportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC83D2D32FAB98DE0082EA1C /* SportCell.xib */; };
+		BC83D2D72FAB9E080082EA1C /* SportsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D2D62FAB9E080082EA1C /* SportsPresenterProtocol.swift */; };
+		BC83D2D92FAB9E340082EA1C /* SportsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D2D82FAB9E340082EA1C /* SportsViewProtocol.swift */; };
+		BC83D2DC2FAB9EA40082EA1C /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D2DB2FAB9EA40082EA1C /* Sport.swift */; };
+		BC83D2DE2FAB9F1F0082EA1C /* SportsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D2DD2FAB9F1F0082EA1C /* SportsPresenter.swift */; };
 		BCA5E86D2FA9071600C7D39E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5E86C2FA9071600C7D39E /* AppDelegate.swift */; };
 		BCA5E86F2FA9071600C7D39E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5E86E2FA9071600C7D39E /* SceneDelegate.swift */; };
 		BCA5E8742FA9071600C7D39E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCA5E8722FA9071600C7D39E /* Main.storyboard */; };
@@ -57,6 +64,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC83D2CF2FAB984E0082EA1C /* SportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewController.swift; sourceTree = "<group>"; };
+		BC83D2D22FAB98DE0082EA1C /* SportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCell.swift; sourceTree = "<group>"; };
+		BC83D2D32FAB98DE0082EA1C /* SportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SportCell.xib; sourceTree = "<group>"; };
+		BC83D2D62FAB9E080082EA1C /* SportsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsPresenterProtocol.swift; sourceTree = "<group>"; };
+		BC83D2D82FAB9E340082EA1C /* SportsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewProtocol.swift; sourceTree = "<group>"; };
+		BC83D2DB2FAB9EA40082EA1C /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
+		BC83D2DD2FAB9F1F0082EA1C /* SportsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsPresenter.swift; sourceTree = "<group>"; };
 		BCA5E8692FA9071600C7D39E /* Arena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arena.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA5E86C2FA9071600C7D39E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCA5E86E2FA9071600C7D39E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +132,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC82D0CF2FAB61410006A28F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCA5E8722FA9071600C7D39E /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BC83D2CC2FAB97990082EA1C /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				BC83D2CE2FAB97C10082EA1C /* Presenter */,
+				BC83D2CD2FAB97AF0082EA1C /* View */,
+				BC83D2D82FAB9E340082EA1C /* SportsViewProtocol.swift */,
+				BC83D2D62FAB9E080082EA1C /* SportsPresenterProtocol.swift */,
+			);
+			path = Sports;
+			sourceTree = "<group>";
+		};
+		BC83D2CD2FAB97AF0082EA1C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC83D2D12FAB98B20082EA1C /* Cell */,
+				BC83D2CF2FAB984E0082EA1C /* SportsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC83D2CE2FAB97C10082EA1C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BC83D2DD2FAB9F1F0082EA1C /* SportsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BC83D2D12FAB98B20082EA1C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BC83D2D22FAB98DE0082EA1C /* SportCell.swift */,
+				BC83D2D32FAB98DE0082EA1C /* SportCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BC83D2DA2FAB9E830082EA1C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC83D2DB2FAB9EA40082EA1C /* Sport.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BCA5E8602FA9071600C7D39E = {
 			isa = PBXGroup;
 			children = (
@@ -141,13 +208,13 @@
 		BCA5E86B2FA9071600C7D39E /* Arena */ = {
 			isa = PBXGroup;
 			children = (
+				BC83D2DA2FAB9E830082EA1C /* Models */,
 				BCA5E8A62FA91DF800C7D39E /* Resources */,
-				BCFB7D0D2FAA934E00CE422B /* Helpers */,
 				BCFB7CEF2FAA50AE00CE422B /* Core */,
 				BCA5E89F2FA919B400C7D39E /* Modules */,
-				BCA5E86C2FA9071600C7D39E /* AppDelegate.swift */,
+				BC82D0CF2FAB61410006A28F /* Views */,
 				BCA5E86E2FA9071600C7D39E /* SceneDelegate.swift */,
-				BCA5E8722FA9071600C7D39E /* Main.storyboard */,
+				BCA5E86C2FA9071600C7D39E /* AppDelegate.swift */,
 				BCA5E8782FA9071800C7D39E /* Assets.xcassets */,
 				BCA5E87A2FA9071800C7D39E /* LaunchScreen.storyboard */,
 				BCA5E87D2FA9071800C7D39E /* Info.plist */,
@@ -176,6 +243,7 @@
 		BCA5E89F2FA919B400C7D39E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BC83D2CC2FAB97990082EA1C /* Sports */,
 				BCFB7CF72FAA581C00CE422B /* Onboarding */,
 				BCA5E8A02FA91A7000C7D39E /* Splash */,
 			);
@@ -234,6 +302,7 @@
 		BCFB7CEF2FAA50AE00CE422B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BCFB7D0D2FAA934E00CE422B /* Helpers */,
 				BCFB7CF22FAA50E900CE422B /* Navigation */,
 				BCFB7CF12FAA50E400CE422B /* DI */,
 			);
@@ -408,6 +477,7 @@
 				BCA5E8B12FA91E3B00C7D39E /* Lexend-Regular.ttf in Resources */,
 				BCA5E8B22FA91E3B00C7D39E /* Lexend-Medium.ttf in Resources */,
 				BCA5E8A52FA91AA900C7D39E /* SplashViewController.xib in Resources */,
+				BC83D2D52FAB98DE0082EA1C /* SportCell.xib in Resources */,
 				BCA5E8AE2FA91E3B00C7D39E /* Lexend-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,19 +506,25 @@
 				BCFB7D012FAA69BD00CE422B /* OnboardingContentViewController.swift in Sources */,
 				BCA5E8772FA9071600C7D39E /* Arena.xcdatamodeld in Sources */,
 				BCFB7CF42FAA50FE00CE422B /* Routes.swift in Sources */,
+				BC83D2D72FAB9E080082EA1C /* SportsPresenterProtocol.swift in Sources */,
 				BCFB7CF62FAA512D00CE422B /* AppContainer.swift in Sources */,
 				BCFB7CEE2FAA4BA500CE422B /* SplashPresenter.swift in Sources */,
 				BCFB7D072FAA715600CE422B /* OnboardingPage.swift in Sources */,
+				BC83D2DC2FAB9EA40082EA1C /* Sport.swift in Sources */,
 				BCFB7D0F2FAA936200CE422B /* UserDefaultsManager.swift in Sources */,
+				BC83D2D02FAB984E0082EA1C /* SportsViewController.swift in Sources */,
 				BCFB7CEC2FAA4AA100CE422B /* SplashPresenterProtocol.swift in Sources */,
 				BCFB7D0C2FAA8CA600CE422B /* OnboardingViewController.swift in Sources */,
 				BCA5E86D2FA9071600C7D39E /* AppDelegate.swift in Sources */,
 				BCFB7D052FAA70FA00CE422B /* OnboardingPresenter.swift in Sources */,
 				BCFB7CEA2FAA4A6E00CE422B /* SplashView.swift in Sources */,
+				BC83D2DE2FAB9F1F0082EA1C /* SportsPresenter.swift in Sources */,
 				BCFB7D0B2FAA73A600CE422B /* OnboardingPresenterProtocol.swift in Sources */,
 				BCFB7D032FAA70DA00CE422B /* OnboardingViewProtocol.swift in Sources */,
 				BCA5E86F2FA9071600C7D39E /* SceneDelegate.swift in Sources */,
+				BC83D2D42FAB98DE0082EA1C /* SportCell.swift in Sources */,
 				BCA5E8A42FA91AA900C7D39E /* SplashViewController.swift in Sources */,
+				BC83D2D92FAB9E340082EA1C /* SportsViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

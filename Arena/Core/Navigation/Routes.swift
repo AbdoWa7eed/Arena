@@ -25,4 +25,21 @@ enum AppRouter {
         return storyboard.instantiateViewController(withIdentifier: Routes.onboardingVC) as! OnboardingViewController
     }
 
+    static func makeMainApp() -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+    }
+    
+    static func setRootViewController(_ viewController: UIViewController, animated: Bool = true) {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let sceneDelegate = windowScene.delegate as? SceneDelegate else { return }
+        
+        UIView.transition(with: sceneDelegate.window!,
+                          duration: 0.4,
+                          options: .transitionCrossDissolve,
+                          animations: {
+            sceneDelegate.window?.rootViewController = viewController
+        })
+    }
+
 }
