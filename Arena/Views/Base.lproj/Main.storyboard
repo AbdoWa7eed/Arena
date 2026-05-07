@@ -222,6 +222,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="396" height="178"/>
+                                <connections>
+                                    <segue destination="l9h-Dh-Q0M" kind="show" id="O5j-gX-vPm"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -234,6 +237,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4T-va-cVO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1428.985507246377" y="-924.10714285714278"/>
+        </scene>
+        <!--Team Details View Controller-->
+        <scene sceneID="vAg-nE-Oic">
+            <objects>
+                <collectionViewController storyboardIdentifier="TeamDetailsViewController" id="l9h-Dh-Q0M" customClass="TeamDetailsViewController" customModule="Arena" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Bkj-CP-b2Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v1k-Op-dEk">
+                            <size key="itemSize" width="414" height="347"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TeamHeroCell" id="3lg-q9-YXx">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="347"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="z10-8H-6dd">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="347"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="414" height="347"/>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PlayerCell" id="xsT-mz-ewx">
+                                <rect key="frame" x="0.0" y="357" width="414" height="421"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="T95-KC-EMl">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="421"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="414" height="421"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="l9h-Dh-Q0M" id="xuX-P8-OgO"/>
+                            <outlet property="delegate" destination="l9h-Dh-Q0M" id="bNV-xZ-9VF"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="L4X-AY-N5e"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CYl-lj-Mgv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2171.0144927536235" y="-924.10714285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NDk-wd-NrB">

@@ -17,6 +17,8 @@ enum Routes {
     static let mainStoryboard = "Main"
     static let leaguesViewController = "LeaguesViewController"
     static let leagueDetailsViewController = "LeagueDetailsViewController"
+    static let teamDetailsViewController = "TeamDetailsViewController"
+
 
 }
 
@@ -56,6 +58,12 @@ enum AppRouter {
     static func makeLeagueDetailsController(using storyboard: UIStoryboard, league: League) -> LeagueDetailsViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: Routes.leagueDetailsViewController) as! LeagueDetailsViewController
             vc.league = league
+            return vc
+        }
+    
+    static func makeTeamDetailsController(using storyboard: UIStoryboard, team: Team) -> TeamDetailsViewController {
+        let vc = storyboard.instantiateViewController(withIdentifier: Routes.teamDetailsViewController) as! TeamDetailsViewController
+            vc.team = team
             return vc
         }
 

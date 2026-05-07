@@ -43,7 +43,7 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
         switch section {
         case .teams:
             let team = getTeam(at: index)
-            // TODO: navigate to team details
+            view?.navigateToTeamDetails(team)
             print("Team tapped: \(team.name)")
         default :
             print("No navigation")

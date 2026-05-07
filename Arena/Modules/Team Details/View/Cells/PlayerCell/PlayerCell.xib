@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lexend-ExtraBold.ttf">
+            <string>Lexend-ExtraBold</string>
+        </array>
+        <array key="Lexend-Regular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+        <array key="Lexend-SemiBold.ttf">
+            <string>Lexend-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PlayerCell" customModule="Arena" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mainContainer">
+                        <rect key="frame" x="4" y="4" width="335" height="92"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="img" userLabel="playerImageView">
+                                <rect key="frame" x="12" y="11" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="h1"/>
+                                    <constraint firstAttribute="width" constant="70" id="w1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" contentMode="left" text="Player Name" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1" userLabel="nameLabel">
+                                <rect key="frame" x="94" y="24" width="104" height="20"/>
+                                <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="16"/>
+                                <color key="textColor" name="HeadingText"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" text="Posistion" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1" userLabel="positionLabel">
+                                <rect key="frame" x="94" y="48" width="61" height="18"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                                <color key="textColor" name="BodyText"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="249" text="16" textAlignment="right" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="num" userLabel="numberLabel">
+                                <rect key="frame" x="206" y="26" width="117" height="40"/>
+                                <fontDescription key="fontDescription" name="Lexend-ExtraBold" family="Lexend" pointSize="32"/>
+                                <color key="textColor" name="SecondarySurface"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="CardBackground"/>
+                        <constraints>
+                            <constraint firstItem="img" firstAttribute="centerY" secondItem="mainContainer" secondAttribute="centerY" id="c1"/>
+                            <constraint firstItem="img" firstAttribute="leading" secondItem="mainContainer" secondAttribute="leading" constant="12" id="c2"/>
+                            <constraint firstItem="n1" firstAttribute="leading" secondItem="img" secondAttribute="trailing" constant="12" id="c3"/>
+                            <constraint firstItem="n1" firstAttribute="top" secondItem="mainContainer" secondAttribute="top" constant="24" id="c4"/>
+                            <constraint firstItem="p1" firstAttribute="leading" secondItem="n1" secondAttribute="leading" id="c5"/>
+                            <constraint firstItem="p1" firstAttribute="top" secondItem="n1" secondAttribute="bottom" constant="4" id="c6"/>
+                            <constraint firstAttribute="trailing" secondItem="num" secondAttribute="trailing" constant="12" id="c7"/>
+                            <constraint firstItem="num" firstAttribute="centerY" secondItem="mainContainer" secondAttribute="centerY" id="c8"/>
+                            <constraint firstItem="num" firstAttribute="leading" secondItem="n1" secondAttribute="trailing" constant="8" id="c9"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="mainContainer" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="a1"/>
+                <constraint firstAttribute="bottom" secondItem="mainContainer" secondAttribute="bottom" constant="4" id="a2"/>
+                <constraint firstItem="mainContainer" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="a3"/>
+                <constraint firstAttribute="trailing" secondItem="mainContainer" secondAttribute="trailing" constant="4" id="a4"/>
+            </constraints>
+            <connections>
+                <outlet property="mainContainer" destination="mainContainer" id="yyh-za-PUA"/>
+                <outlet property="nameLabel" destination="n1" id="o2"/>
+                <outlet property="numberLabel" destination="num" id="o4"/>
+                <outlet property="playerImageView" destination="img" id="o1"/>
+                <outlet property="positionLabel" destination="p1" id="o3"/>
+            </connections>
+            <point key="canvasLocation" x="136.95652173913044" y="57.589285714285708"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BodyText">
+            <color red="0.41960784313725491" green="0.44705882352941179" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CardBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HeadingText">
+            <color red="0.066666666666666666" green="0.094117647058823528" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondarySurface">
+            <color red="0.84705882352941175" green="0.85490196078431369" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
