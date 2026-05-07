@@ -15,14 +15,8 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol {
     private var presenter: FavoritesPresenterProtocol!
 
     private let activityIndicator = UIActivityIndicatorView(style: .large)
-    private let messageLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.textColor = UIColor(named: "BodyText")
-        label.font = UIFont(name: "Lexend-Regular", size: 16)
-        return label
-    }()
+    private lazy var messageLabel = UILabel.makeMessageLabel(message: "No Favorite Added Yet.")
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +55,6 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol {
     }
 
     func showEmpty() {
-        messageLabel.text = "No favorites yet."
         tableView.backgroundView = messageLabel
         tableView.reloadData()
     }

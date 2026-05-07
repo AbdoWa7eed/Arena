@@ -17,8 +17,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = AppRouter.makeSplash()
         applyTheme()
+        setupNavigationBarTheme()
         window?.makeKeyAndVisible()
     }
+    
+    private func setupNavigationBarTheme() {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(named: "PrimaryBackground")
+            appearance.shadowColor = .clear
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            UINavigationBar.appearance().compactAppearance = appearance
+            
+        }
 
     func sceneDidDisconnect(_ scene: UIScene) {}
 

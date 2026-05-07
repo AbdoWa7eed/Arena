@@ -1,27 +1,23 @@
 import UIKit
 
 class LeaguesViewController: UIViewController, LeaguesViewProtocol {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    var sport: Sport!
+    
     static let cellIdentifier = "LeagueCell"
 
     private var presenter: LeaguesPresenterProtocol!
 
     private let activityIndicator = UIActivityIndicatorView(style: .large)
-    private let messageLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.textColor = UIColor(named: "BodyText")
-        label.font = UIFont(name: "Lexend-Regular", size: 16)
-        return label
-    }()
+    private let messageLabel: UILabel = UILabel.makeMessageLabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = AppContainer.shared.makeLeaguesPresenter(view: self)
-        setupCustomTitleFont(title: "Leagues")
+        setupCustomTitleFont(title: sport.name)
         setupTableView()
         setupSearchBar()
         presenter.viewDidLoad()
@@ -89,6 +85,9 @@ extension LeaguesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.didSelectLeague(at: indexPath.row)
+        let league = presenter.getLeague(at: indexPath.row)
+        guard let storyboard = self.storyboard else {return }
+        navigationController?.pushViewController(AppRouter.makeLeagueDetailsController(using: storyboard , league: league), animated: true)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

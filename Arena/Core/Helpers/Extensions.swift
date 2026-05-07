@@ -59,3 +59,17 @@ extension UIViewController {
         }
     
 }
+
+
+
+extension UILabel {
+    static func makeMessageLabel(message: String? = nil) -> UILabel {
+        let label = UILabel()
+        label.text = message ?? ""
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = UIColor(named: "BodyText")
+        label.font = UIFont(name: "Lexend-Regular", size: 16) ?? .systemFont(ofSize: 16)
+        return label
+    }
+}
