@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lexend-Bold.ttf">
+            <string>Lexend-Bold</string>
+        </array>
+        <array key="Lexend-Regular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cel-01-abc" customClass="LatestEventCell" customModule="Arena" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnt-01-abc">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="img-home-01">
+                                <rect key="frame" x="12" y="15" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="h-home-img"/>
+                                    <constraint firstAttribute="width" constant="40" id="w-home-img"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-home-01">
+                                <rect key="frame" x="60" y="25.5" width="131.5" height="19"/>
+                                <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="15"/>
+                                <color key="textColor" name="HeadingText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="img-away-01">
+                                <rect key="frame" x="12" y="65" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="h-away-img"/>
+                                    <constraint firstAttribute="width" constant="40" id="w-away-img"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-away-01">
+                                <rect key="frame" x="60" y="75.5" width="131.5" height="19"/>
+                                <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="15"/>
+                                <color key="textColor" name="BodyText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-hscore-01">
+                                <rect key="frame" x="199.5" y="25.5" width="10.5" height="19"/>
+                                <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="15"/>
+                                <color key="textColor" name="BodyText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-ascore-01">
+                                <rect key="frame" x="199.5" y="75.5" width="10.5" height="19"/>
+                                <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="15"/>
+                                <color key="textColor" name="BodyText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="div-01-abc">
+                                <rect key="frame" x="218" y="25" width="1" height="70"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="w-div-01"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-status-01">
+                                <rect key="frame" x="219" y="41" width="131" height="16.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="131" id="stat-w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="13"/>
+                                <color key="textColor" name="BodyText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-date-01">
+                                <rect key="frame" x="219" y="62.5" width="131" height="16.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="131" id="date-w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="13"/>
+                                <color key="textColor" name="BodyText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="CardBackground"/>
+                        <constraints>
+                            <constraint firstItem="img-home-01" firstAttribute="leading" secondItem="cnt-01-abc" secondAttribute="leading" constant="12" id="c01"/>
+                            <constraint firstItem="img-home-01" firstAttribute="top" secondItem="cnt-01-abc" secondAttribute="top" constant="15" id="c02"/>
+                            <constraint firstItem="img-away-01" firstAttribute="leading" secondItem="cnt-01-abc" secondAttribute="leading" constant="12" id="c03"/>
+                            <constraint firstAttribute="bottom" secondItem="img-away-01" secondAttribute="bottom" constant="15" id="c05"/>
+                            <constraint firstItem="lbl-home-01" firstAttribute="leading" secondItem="img-home-01" secondAttribute="trailing" constant="8" id="c06"/>
+                            <constraint firstItem="lbl-home-01" firstAttribute="centerY" secondItem="img-home-01" secondAttribute="centerY" id="c07"/>
+                            <constraint firstItem="lbl-home-01" firstAttribute="trailing" secondItem="lbl-hscore-01" secondAttribute="leading" constant="-8" id="c08"/>
+                            <constraint firstItem="lbl-away-01" firstAttribute="leading" secondItem="img-away-01" secondAttribute="trailing" constant="8" id="c09"/>
+                            <constraint firstItem="lbl-away-01" firstAttribute="centerY" secondItem="img-away-01" secondAttribute="centerY" id="c10"/>
+                            <constraint firstItem="lbl-away-01" firstAttribute="trailing" secondItem="lbl-ascore-01" secondAttribute="leading" constant="-8" id="c11"/>
+                            <constraint firstItem="lbl-hscore-01" firstAttribute="centerY" secondItem="img-home-01" secondAttribute="centerY" id="c12"/>
+                            <constraint firstItem="lbl-ascore-01" firstAttribute="centerY" secondItem="img-away-01" secondAttribute="centerY" id="c13"/>
+                            <constraint firstItem="div-01-abc" firstAttribute="leading" secondItem="lbl-hscore-01" secondAttribute="trailing" constant="8" id="c14"/>
+                            <constraint firstItem="div-01-abc" firstAttribute="leading" secondItem="lbl-ascore-01" secondAttribute="trailing" constant="8" id="c15"/>
+                            <constraint firstItem="div-01-abc" firstAttribute="top" secondItem="cnt-01-abc" secondAttribute="top" constant="25" id="c16"/>
+                            <constraint firstAttribute="bottom" secondItem="div-01-abc" secondAttribute="bottom" constant="25" id="c17"/>
+                            <constraint firstItem="lbl-status-01" firstAttribute="leading" secondItem="div-01-abc" secondAttribute="trailing" id="c18"/>
+                            <constraint firstAttribute="trailing" secondItem="lbl-status-01" secondAttribute="trailing" id="c19"/>
+                            <constraint firstItem="lbl-date-01" firstAttribute="leading" secondItem="div-01-abc" secondAttribute="trailing" id="c21"/>
+                            <constraint firstAttribute="trailing" secondItem="lbl-date-01" secondAttribute="trailing" id="c22"/>
+                            <constraint firstItem="img-away-01" firstAttribute="top" secondItem="img-home-01" secondAttribute="bottom" constant="10" id="img-gap"/>
+                            <constraint firstItem="lbl-status-01" firstAttribute="centerY" secondItem="cnt-01-abc" secondAttribute="centerY" constant="-10.75" id="stat-center"/>
+                            <constraint firstItem="lbl-date-01" firstAttribute="top" secondItem="lbl-status-01" secondAttribute="bottom" constant="5" id="wph-2H-hh9"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="safe-01-abc"/>
+            <constraints>
+                <constraint firstItem="cnt-01-abc" firstAttribute="leading" secondItem="cel-01-abc" secondAttribute="leading" id="oc1"/>
+                <constraint firstItem="cnt-01-abc" firstAttribute="trailing" secondItem="cel-01-abc" secondAttribute="trailing" id="oc2"/>
+                <constraint firstItem="cnt-01-abc" firstAttribute="top" secondItem="cel-01-abc" secondAttribute="top" id="oc3"/>
+                <constraint firstItem="cnt-01-abc" firstAttribute="bottom" secondItem="cel-01-abc" secondAttribute="bottom" id="oc4"/>
+            </constraints>
+            <size key="customSize" width="350" height="120"/>
+            <connections>
+                <outlet property="awayScoreLabel" destination="lbl-ascore-01" id="out-ascr"/>
+                <outlet property="awayTeamImageView" destination="img-away-01" id="out-aimg"/>
+                <outlet property="awayTeamLabel" destination="lbl-away-01" id="out-albl"/>
+                <outlet property="containerView" destination="cnt-01-abc" id="out-cnt"/>
+                <outlet property="dateLabel" destination="lbl-date-01" id="out-date"/>
+                <outlet property="dividerView" destination="div-01-abc" id="out-div"/>
+                <outlet property="homeScoreLabel" destination="lbl-hscore-01" id="out-hscr"/>
+                <outlet property="homeTeamImageView" destination="img-home-01" id="out-himg"/>
+                <outlet property="homeTeamLabel" destination="lbl-home-01" id="out-hlbl"/>
+                <outlet property="statusLabel" destination="lbl-status-01" id="out-stat"/>
+            </connections>
+            <point key="canvasLocation" x="141" y="58"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BodyText">
+            <color red="0.41960784313725491" green="0.44705882352941179" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CardBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HeadingText">
+            <color red="0.066666666666666666" green="0.094117647058823528" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

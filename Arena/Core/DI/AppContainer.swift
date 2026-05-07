@@ -26,6 +26,10 @@ final class AppContainer {
     }
     
     func makeLeaguesPresenter(view: LeaguesViewProtocol) -> LeaguesPresenterProtocol {
-        return LeaguesPresenter(view: view)
+        return LeaguesPresenter(view: view, sport: view.sport)
+    }
+    
+    func makeLeagueDetailsPresenter(view: LeagueDetailsViewProtocol) -> LeagueDetailsPresenterProtocol {
+        return LeagueDetailsPresenter(view: view, league: view.league)
     }
 }

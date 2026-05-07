@@ -10,12 +10,14 @@ import Foundation
 class LeaguesPresenter: LeaguesPresenterProtocol {
 
     private weak var view: LeaguesViewProtocol?
+    private var sport: Sport!
     private var allLeagues: [League] = []
     private var filteredLeagues: [League] = []
     private var isSearching = false
 
-    init(view: LeaguesViewProtocol) {
+    init(view: LeaguesViewProtocol, sport: Sport) {
         self.view = view
+        self.sport = sport
     }
 
     var numberOfLeagues: Int {
