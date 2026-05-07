@@ -24,4 +24,8 @@ final class AppContainer {
     func makeSportsPresenter(view: SportsViewProtocol) -> SportsPresenterProtocol {
         return SportsPresenter(view: view)
     }
+    
+    func makeLeaguesPresenter(view: LeaguesViewProtocol) -> LeaguesPresenterProtocol {
+        return LeaguesPresenter(view: view)
+    }
 }
