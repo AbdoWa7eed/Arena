@@ -14,4 +14,6 @@ protocol LeagueDetailsViewProtocol: AnyObject {
     func showData()
     func showEmpty()
     func showError(_ message: String)
+    func navigateToTeamDetails(_ team: Team)
+
 }

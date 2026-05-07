@@ -165,6 +165,12 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
         collectionView.backgroundView = messageLabel
         collectionView.reloadData()
     }
+    
+    func navigateToTeamDetails(_ team: Team) {
+        guard let storyboard = self.storyboard else {return}
+        let vc = AppRouter.makeTeamDetailsController(using: storyboard, team: team)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension LeagueDetailsViewController {
