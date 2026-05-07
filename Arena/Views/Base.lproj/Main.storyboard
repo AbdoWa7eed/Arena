@@ -17,28 +17,40 @@
         <!--Favorites-->
         <scene sceneID="wo4-Oe-7jO">
             <objects>
-                <viewController id="VIM-J1-dGC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoritesViewController" id="VIM-J1-dGC" customClass="FavoritesViewController" customModule="Arena" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pgh-Qy-Zbt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorites Screen" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPB-c4-Lxx">
-                                <rect key="frame" x="121.5" y="436" width="171" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorites" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRz-iF-Ciq">
+                                <rect key="frame" x="20" y="88" width="394" height="60"/>
+                                <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="48"/>
+                                <color key="textColor" name="PrimaryBrand"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gSN-T7-Dm5">
+                                <rect key="frame" x="0.0" y="148" width="414" height="665"/>
+                                <color key="backgroundColor" name="PrimaryBackground"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I06-oC-rlF"/>
                         <color key="backgroundColor" name="PrimaryBackground"/>
                         <constraints>
-                            <constraint firstItem="CPB-c4-Lxx" firstAttribute="centerY" secondItem="I06-oC-rlF" secondAttribute="centerY" id="2HQ-kF-lHD"/>
-                            <constraint firstItem="CPB-c4-Lxx" firstAttribute="centerX" secondItem="I06-oC-rlF" secondAttribute="centerX" id="NTm-S2-b4k"/>
+                            <constraint firstItem="ZRz-iF-Ciq" firstAttribute="top" secondItem="I06-oC-rlF" secondAttribute="top" id="3GQ-D4-KBF"/>
+                            <constraint firstItem="gSN-T7-Dm5" firstAttribute="top" secondItem="ZRz-iF-Ciq" secondAttribute="bottom" id="Ery-nS-4SX"/>
+                            <constraint firstItem="gSN-T7-Dm5" firstAttribute="leading" secondItem="I06-oC-rlF" secondAttribute="leading" id="Gc4-W2-fuY"/>
+                            <constraint firstItem="I06-oC-rlF" firstAttribute="bottom" secondItem="gSN-T7-Dm5" secondAttribute="bottom" id="Nub-YB-mjI"/>
+                            <constraint firstItem="I06-oC-rlF" firstAttribute="trailing" secondItem="ZRz-iF-Ciq" secondAttribute="trailing" id="cUD-P6-gdi"/>
+                            <constraint firstItem="ZRz-iF-Ciq" firstAttribute="leading" secondItem="I06-oC-rlF" secondAttribute="leading" constant="20" id="j1y-v4-iE7"/>
+                            <constraint firstItem="I06-oC-rlF" firstAttribute="trailing" secondItem="gSN-T7-Dm5" secondAttribute="trailing" id="tud-gx-OmB"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="euy-1a-4KT">
                         <color key="badgeColor" name="PrimaryBlue"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="tableView" destination="gSN-T7-Dm5" id="oKC-9C-CXZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBE-Py-RBd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
