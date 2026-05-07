@@ -13,6 +13,9 @@ enum Routes {
     static let onboardingStoryboard = "Onboarding"
     static let onboardingVC = "OnboardingViewController"
     static let onboardingContentVC = "OnboardingContentViewController"
+    static let mainNavigationController = "MainNavigationController"
+    static let mainStoryboard = "Main"
+    static let leaguesViewController = "LeaguesViewController"
 }
 
 enum AppRouter {
@@ -26,8 +29,8 @@ enum AppRouter {
     }
 
     static func makeMainApp() -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+        let storyboard = UIStoryboard(name: Routes.mainStoryboard, bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: Routes.mainNavigationController)
     }
     
     static func setRootViewController(_ viewController: UIViewController, animated: Bool = true) {
@@ -41,5 +44,10 @@ enum AppRouter {
             sceneDelegate.window?.rootViewController = viewController
         })
     }
+    
+    static func makeLeaguesController(using storyboard: UIStoryboard) -> LeaguesViewController {
+        let vc = storyboard.instantiateViewController(withIdentifier: Routes.leaguesViewController) as! LeaguesViewController
+            return vc
+        }
 
 }

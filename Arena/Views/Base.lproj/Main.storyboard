@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A6r-L8-o0B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aLS-af-wn7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorites Screen" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPB-c4-Lxx">
-                                <rect key="frame" x="121.5" y="414" width="171" height="29"/>
+                                <rect key="frame" x="121.5" y="436" width="171" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBE-Py-RBd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="699" y="-235"/>
+            <point key="canvasLocation" x="-133" y="-244"/>
         </scene>
         <!--Sports-->
         <scene sceneID="PkI-5F-1I3">
@@ -53,7 +53,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LS0-YE-huC">
-                                <rect key="frame" x="0.0" y="104" width="414" height="709"/>
+                                <rect key="frame" x="0.0" y="148" width="414" height="665"/>
                                 <color key="backgroundColor" name="PrimaryBackground"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n5A-bP-ywg">
                                     <size key="itemSize" width="128" height="128"/>
@@ -69,11 +69,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <segue destination="bY5-ic-6Fl" kind="show" id="dFt-Qa-uvC"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arena" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqY-DH-Hbr">
-                                <rect key="frame" x="20" y="44" width="394" height="60"/>
+                                <rect key="frame" x="20" y="88" width="394" height="60"/>
                                 <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="48"/>
                                 <color key="textColor" name="PrimaryBrand"/>
                                 <nil key="highlightedColor"/>
@@ -100,12 +103,85 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bn1-Yn-rZO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="699" y="-924"/>
+            <point key="canvasLocation" x="-133" y="-924"/>
+        </scene>
+        <!--Leagues View Controller-->
+        <scene sceneID="QLr-ZP-Mqh">
+            <objects>
+                <viewController storyboardIdentifier="LeaguesViewController" id="bY5-ic-6Fl" customClass="LeaguesViewController" customModule="Arena" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WBp-5u-Z74">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qWs-yu-ldg">
+                                <rect key="frame" x="0.0" y="155" width="414" height="707"/>
+                                <color key="backgroundColor" name="PrimaryBackground"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LeagueCell" id="4Lb-Ay-UM1">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Lb-Ay-UM1" id="6IH-S9-y2v">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="Find a league" translatesAutoresizingMaskIntoConstraints="NO" id="0p8-QO-14W">
+                                <rect key="frame" x="0.0" y="96" width="414" height="51"/>
+                                <color key="backgroundColor" name="PrimaryBackground"/>
+                                <color key="barTintColor" name="PrimaryBackground"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1kQ-2P-FTw"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <constraints>
+                            <constraint firstItem="1kQ-2P-FTw" firstAttribute="bottom" secondItem="qWs-yu-ldg" secondAttribute="bottom" id="8Nb-lj-z2o"/>
+                            <constraint firstItem="qWs-yu-ldg" firstAttribute="top" secondItem="0p8-QO-14W" secondAttribute="bottom" constant="8" id="DxD-IV-lGX"/>
+                            <constraint firstItem="qWs-yu-ldg" firstAttribute="leading" secondItem="1kQ-2P-FTw" secondAttribute="leading" id="Hzg-r1-FXZ"/>
+                            <constraint firstItem="0p8-QO-14W" firstAttribute="leading" secondItem="1kQ-2P-FTw" secondAttribute="leading" id="IyS-tf-bj9"/>
+                            <constraint firstItem="1kQ-2P-FTw" firstAttribute="trailing" secondItem="qWs-yu-ldg" secondAttribute="trailing" id="KdS-7o-8Qd"/>
+                            <constraint firstItem="0p8-QO-14W" firstAttribute="top" secondItem="1kQ-2P-FTw" secondAttribute="top" constant="8" id="X87-hA-14M"/>
+                            <constraint firstItem="1kQ-2P-FTw" firstAttribute="trailing" secondItem="0p8-QO-14W" secondAttribute="trailing" id="m4L-lh-s16"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="AUj-jg-6VN"/>
+                    <connections>
+                        <outlet property="searchBar" destination="0p8-QO-14W" id="d7w-qs-Euu"/>
+                        <outlet property="tableView" destination="qWs-yu-ldg" id="knO-48-IwR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KL3-9F-8Qg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="601" y="-924"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NDk-wd-NrB">
+            <objects>
+                <navigationController storyboardIdentifier="MainNavigationController" id="aLS-af-wn7" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Icl-vj-qIe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <color key="barTintColor" name="HeadingText"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="HeadingText"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="A6r-L8-o0B" kind="relationship" relationship="rootViewController" id="Kvy-eb-ggn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZFZ-Uf-ohY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1913" y="-527"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="P6M-xW-dpN">
             <objects>
                 <tabBarController storyboardIdentifier="MainTabBarController" id="A6r-L8-o0B" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="kCF-Pe-3qR"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zH6-oo-U0f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -118,12 +194,15 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U6j-pe-lpb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-191" y="-539"/>
+            <point key="canvasLocation" x="-1058" y="-527"/>
         </scene>
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="sportscourt" catalog="system" width="128" height="84"/>
+        <namedColor name="HeadingText">
+            <color red="0.066666666666666666" green="0.094117647058823528" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PrimaryBackground">
             <color red="0.96862745098039216" green="0.97647058823529409" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

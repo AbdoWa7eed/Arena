@@ -14,7 +14,7 @@ class SportsPresenter: SportsPresenterProtocol {
         Sport(name: "Soccer", imageName: "bg_soccer"),
         Sport(name: "Basketball", imageName: "bg_basketball"),
         Sport(name: "Tennis", imageName: "bg_tennis"),
-        Sport(name: "Racing", imageName: "bg_tennis")
+        Sport(name: "Cricket", imageName: "bg_cricket")
     ]
     
     init(view: SportsViewProtocol) {

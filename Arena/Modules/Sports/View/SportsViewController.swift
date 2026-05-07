@@ -15,10 +15,12 @@ class SportsViewController: UIViewController, SportsViewProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         presenter = AppContainer.shared.makeSportsPresenter(view: self)
         setupCollectionView()
         presenter.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        setNavigationBarVisibilty(false)
     }
     
     private var hasLayedOut = false
@@ -70,6 +72,11 @@ extension SportsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter.didSelectSport(at: indexPath.row)
+
+        guard let storyboard = self.storyboard else { return }
+        
+        let leaguesVC = AppRouter.makeLeaguesController(using: storyboard)
+        self.navigationController?.pushViewController(leaguesVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
