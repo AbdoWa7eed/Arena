@@ -22,15 +22,40 @@ extension UIViewController {
         
         self.navigationItem.titleView = label
     }
-
-
-
-
-
-
     
     func setNavigationBarVisibilty(_ isVisible: Bool) {
         self.navigationController?.setNavigationBarHidden(!isVisible, animated: true)
     }
+    
+    func showAlert(
+            title: String,
+            message: String,
+            actionTitle: String = "OK",
+            action: (() -> Void)? = nil
+        ) {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: actionTitle, style: .default) { _ in
+                action?()
+            })
+            present(alert, animated: true)
+        }
+
+    func showConfirmationAlert(
+            title: String,
+            message: String,
+            confirmTitle: String = "Confirm",
+            cancelTitle: String = "Cancel",
+            onConfirm: (() -> Void)? = nil,
+            onCancel: (() -> Void)? = nil
+        ) {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: confirmTitle, style: .destructive) { _ in
+                onConfirm?()
+            })
+            alert.addAction(UIAlertAction(title: cancelTitle, style: .cancel) { _ in
+                onCancel?()
+            })
+            present(alert, animated: true)
+        }
     
 }
