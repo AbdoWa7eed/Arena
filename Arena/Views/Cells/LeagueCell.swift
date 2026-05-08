@@ -38,7 +38,7 @@ class LeagueCell: UITableViewCell {
         countryName.text = league.country
         leagueImage.sd_setImage(
             with: URL(string: league.imageUrl),
-            placeholderImage: UIImage(named: "placeholder")
+            placeholderImage: UIImage(named: "league_placeholder")
         )
     }
 }

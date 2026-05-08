@@ -17,10 +17,11 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = AppContainer.shared.makeLeaguesPresenter(view: self)
+        presenter.viewDidLoad()
         setupCustomTitleFont(title: sport.name)
         setupTableView()
         setupSearchBar()
-        presenter.viewDidLoad()
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -87,7 +88,7 @@ extension LeaguesViewController: UITableViewDataSource, UITableViewDelegate {
         presenter.didSelectLeague(at: indexPath.row)
         let league = presenter.getLeague(at: indexPath.row)
         guard let storyboard = self.storyboard else {return }
-        navigationController?.pushViewController(AppRouter.makeLeagueDetailsController(using: storyboard , league: league), animated: true)
+        navigationController?.pushViewController(AppRouter.makeLeagueDetailsController(using: storyboard , league: league, sport:sport), animated: true)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

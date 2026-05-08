@@ -55,8 +55,9 @@ enum AppRouter {
             return vc
         }
     
-    static func makeLeagueDetailsController(using storyboard: UIStoryboard, league: League) -> LeagueDetailsViewController {
+    static func makeLeagueDetailsController(using storyboard: UIStoryboard, league: League,sport:Sport) -> LeagueDetailsViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: Routes.leagueDetailsViewController) as! LeagueDetailsViewController
+            vc.sport = sport
             vc.league = league
             return vc
         }

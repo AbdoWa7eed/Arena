@@ -50,8 +50,8 @@ class LatestEventCell: UICollectionViewCell {
     func configure(_ event: Event) {
         homeTeamLabel.text = event.homeTeam.name
         awayTeamLabel.text = event.awayTeam.name
-        homeTeamImageView.sd_setImage(with: URL(string: event.homeTeam.logoUrl), placeholderImage: UIImage(named: "placeholder_team"))
-        awayTeamImageView.sd_setImage(with: URL(string: event.awayTeam.logoUrl), placeholderImage: UIImage(named: "placeholder_team"))
+        homeTeamImageView.sd_setImage(with: URL(string: event.homeTeam.logoUrl), placeholderImage: UIImage(named: "team_placeholder"))
+        awayTeamImageView.sd_setImage(with: URL(string: event.awayTeam.logoUrl), placeholderImage: UIImage(named: "team_placeholder"))
         homeScoreLabel.text = "\(event.homeScore ?? 0)"
         awayScoreLabel.text = "\(event.awayScore ?? 0)"
         statusLabel.text = event.status

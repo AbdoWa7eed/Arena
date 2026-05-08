@@ -1,14 +1,8 @@
-//
-//  TeamDetailsCell.swift
-//  Arena
-//
-//  Created by Abdelrahman on 07/05/2026.
-//
 import UIKit
 import SDWebImage
 
 class TeamHeroCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var badgeImageView: UIImageView!
     @IBOutlet weak var teamNameLabel: UILabel!
@@ -21,16 +15,37 @@ class TeamHeroCell: UICollectionViewCell {
         super.awakeFromNib()
         setupUI()
     }
-    
+
     func configure(_ model: Team) {
         teamNameLabel.text = model.name
-        coachNameLabel.text = "Coach: \(model.coachName)"
-        leagueTagLabel.text = model.leagueName.uppercased()
-        countryTagLabel.text = model.countryName.uppercased()
-        
+
+        if let coach = model.coachName, !coach.isEmpty {
+            coachNameLabel.text = "Coach: \(coach)"
+            coachNameLabel.isHidden = false
+            coachIconImageView.isHidden = false
+        } else {
+            coachNameLabel.isHidden = true
+            coachIconImageView.isHidden = true
+        }
+
+        if let league = model.leagueName, !league.isEmpty {
+            leagueTagLabel.text = league.uppercased()
+            leagueTagLabel.superview?.isHidden = false
+        } else {
+            leagueTagLabel.superview?.isHidden = true
+        }
+
+        if let country = model.countryName, !country.isEmpty {
+            countryTagLabel.text = country.uppercased()
+            countryTagLabel.superview?.isHidden = false
+        } else {
+            countryTagLabel.superview?.isHidden = true
+        }
+
         badgeImageView.sd_setImage(
             with: URL(string: model.logoUrl),
-            placeholderImage: UIImage(named: "team_placeholder"))
+            placeholderImage: UIImage(named: "team_placeholder")
+        )
     }
 
     private func setupUI() {
@@ -42,23 +57,10 @@ class TeamHeroCell: UICollectionViewCell {
         layer.shadowOpacity = 0.2
         layer.shadowOffset = CGSize(width: 0, height: 4)
         layer.shadowRadius = 4
-        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 28).cgPath
-
-        styleTag(leagueTagLabel)
-        styleTag(countryTagLabel)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 28).cgPath
     }
-    
-    private func styleTag(_ label: UILabel) {
-        label.layer.cornerRadius = 12
-        label.clipsToBounds = true
-        label.backgroundColor = UIColor(named: "PrimaryBrand")?.withAlphaComponent(0.1)
-        label.textColor = UIColor(named: "PrimaryBrand")
-        label.textAlignment = .center
-    }
-
 }

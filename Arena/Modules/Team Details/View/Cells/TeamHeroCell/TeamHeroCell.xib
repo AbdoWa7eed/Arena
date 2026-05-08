@@ -44,51 +44,83 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" contentMode="left" verticalCompressionResistancePriority="749" text="Coach Name" textAlignment="natural" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8P-Qy-W8J" userLabel="coachNameLabel">
-                                <rect key="frame" x="145" y="212" width="95.5" height="18"/>
+                                <rect key="frame" x="140" y="212" width="95.5" height="18"/>
                                 <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="15"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="f8p-Xy-R2p" userLabel="coachIconImageView">
-                                <rect key="frame" x="123" y="214.5" width="16" height="13.5"/>
+                                <rect key="frame" x="118" y="214.5" width="16" height="13.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="H2"/>
                                     <constraint firstAttribute="width" constant="16" id="W2"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" contentMode="left" text="LEAGUE" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8P-Qy-W8J" userLabel="leagueTagLabel">
-                                <rect key="frame" x="97.5" y="254" width="84" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="H3"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="84" id="W3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="12"/>
-                                <color key="textColor" name="PrimaryBrand"/>
-                            </label>
-                            <label opaque="NO" contentMode="left" text="COUNTRY" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8P-Qy-W8J" userLabel="countryTagLabel">
-                                <rect key="frame" x="193.5" y="254" width="72" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="H4"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="W4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="12"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tagsStackView">
+                                <rect key="frame" x="100" y="248" width="175" height="30"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="league-container">
+                                        <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" contentMode="left" text="LEAGUE" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8P-Qy-W8J" userLabel="leagueTagLabel">
+                                                <rect key="frame" x="10" y="6.5" width="64" height="17"/>
+                                                <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="12"/>
+                                                <color key="textColor" name="PrimaryBrand"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="PrimaryBackground"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="lc-h"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="84" id="lc-w"/>
+                                            <constraint firstItem="L8P-Qy-W8J" firstAttribute="centerY" secondItem="league-container" secondAttribute="centerY" id="lc-cy"/>
+                                            <constraint firstItem="L8P-Qy-W8J" firstAttribute="leading" secondItem="league-container" secondAttribute="leading" constant="10" id="lc-lead"/>
+                                            <constraint firstAttribute="trailing" secondItem="L8P-Qy-W8J" secondAttribute="trailing" constant="10" id="lc-trail"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="country-container">
+                                        <rect key="frame" x="92" y="0.0" width="83" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" contentMode="left" text="COUNTRY" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8P-Qy-W8J" userLabel="countryTagLabel">
+                                                <rect key="frame" x="10" y="6.5" width="63" height="17"/>
+                                                <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="12"/>
+                                                <color key="textColor" name="PrimaryBrand"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="PrimaryBackground"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="cc-h"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="83" id="cc-w"/>
+                                            <constraint firstItem="C8P-Qy-W8J" firstAttribute="centerY" secondItem="country-container" secondAttribute="centerY" id="cc-cy"/>
+                                            <constraint firstItem="C8P-Qy-W8J" firstAttribute="leading" secondItem="country-container" secondAttribute="leading" constant="10" id="cc-lead"/>
+                                            <constraint firstAttribute="trailing" secondItem="C8P-Qy-W8J" secondAttribute="trailing" constant="10" id="cc-trail"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" name="CardBackground"/>
                         <constraints>
                             <constraint firstItem="h8k-Xy-R2g" firstAttribute="top" secondItem="mainContainerView" secondAttribute="top" constant="20" id="m1"/>
                             <constraint firstItem="Z8P-Qy-W8J" firstAttribute="leading" secondItem="f8p-Xy-R2p" secondAttribute="trailing" constant="6" id="m10"/>
-                            <constraint firstItem="L8P-Qy-W8J" firstAttribute="top" secondItem="Z8P-Qy-W8J" secondAttribute="bottom" constant="24" id="m11"/>
-                            <constraint firstItem="L8P-Qy-W8J" firstAttribute="trailing" secondItem="mainContainerView" secondAttribute="centerX" constant="-6" id="m12"/>
-                            <constraint firstItem="C8P-Qy-W8J" firstAttribute="top" secondItem="Z8P-Qy-W8J" secondAttribute="bottom" constant="24" id="m13"/>
-                            <constraint firstItem="C8P-Qy-W8J" firstAttribute="leading" secondItem="mainContainerView" secondAttribute="centerX" constant="6" id="m14"/>
-                            <constraint firstAttribute="bottom" secondItem="L8P-Qy-W8J" secondAttribute="bottom" constant="10" id="m15"/>
+                            <constraint firstItem="tagsStackView" firstAttribute="top" secondItem="Z8P-Qy-W8J" secondAttribute="bottom" constant="24" id="m11"/>
+                            <constraint firstItem="tagsStackView" firstAttribute="centerX" secondItem="mainContainerView" secondAttribute="centerX" id="m12"/>
+                            <constraint firstAttribute="bottom" secondItem="tagsStackView" secondAttribute="bottom" constant="10" id="m13"/>
                             <constraint firstItem="h8k-Xy-R2g" firstAttribute="centerX" secondItem="mainContainerView" secondAttribute="centerX" id="m2"/>
                             <constraint firstItem="N8Z-yL-GjN" firstAttribute="top" secondItem="h8k-Xy-R2g" secondAttribute="bottom" constant="16" id="m3"/>
                             <constraint firstItem="N8Z-yL-GjN" firstAttribute="centerX" secondItem="mainContainerView" secondAttribute="centerX" id="m4"/>
                             <constraint firstAttribute="trailing" secondItem="N8Z-yL-GjN" secondAttribute="trailing" constant="20" id="m5"/>
                             <constraint firstItem="N8Z-yL-GjN" firstAttribute="leading" secondItem="mainContainerView" secondAttribute="leading" constant="20" id="m6"/>
                             <constraint firstItem="Z8P-Qy-W8J" firstAttribute="top" secondItem="N8Z-yL-GjN" secondAttribute="bottom" constant="8" id="m7"/>
-                            <constraint firstItem="Z8P-Qy-W8J" firstAttribute="centerX" secondItem="mainContainerView" secondAttribute="centerX" constant="5" id="m8"/>
+                            <constraint firstItem="Z8P-Qy-W8J" firstAttribute="centerX" secondItem="mainContainerView" secondAttribute="centerX" id="m8"/>
                             <constraint firstItem="f8p-Xy-R2p" firstAttribute="centerY" secondItem="Z8P-Qy-W8J" secondAttribute="centerY" id="m9"/>
                         </constraints>
                     </view>
@@ -117,6 +149,9 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <namedColor name="CardBackground">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryBackground">
+            <color red="0.96862745098039216" green="0.97647058823529409" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryBrand">
             <color red="0.0" green="0.34509803921568627" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

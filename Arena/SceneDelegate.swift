@@ -45,7 +45,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     private func applyTheme() {
-        let isDark = UserDefaultsManager.shared.isDarkMode
-        window?.overrideUserInterfaceStyle = isDark ? .dark : .light
+        let isDark = AppContainer.shared.userDefaults.isDarkMode
+        window?.overrideUserInterfaceStyle = true ? .dark : .light
     }
 }

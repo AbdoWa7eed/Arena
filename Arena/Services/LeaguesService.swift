@@ -7,9 +7,9 @@
 
 import Foundation
 
-protocol LeaguesServiceProtocol {
+protocol LeaguesServiceProtocol: AnyObject {
     func fetchLeagues(
-        sport: ApiConstants.Endpoint,
+        sport: Sport,
         completion: @escaping (Result<[League], Error>) -> Void
     )
 }
@@ -23,7 +23,7 @@ final class LeaguesService: LeaguesServiceProtocol {
     }
     
     func fetchLeagues(
-        sport: ApiConstants.Endpoint,
+        sport: Sport,
         completion: @escaping (Result<[League], Error>) -> Void
     ) {
         
@@ -32,7 +32,7 @@ final class LeaguesService: LeaguesServiceProtocol {
         ]
         
         apiClient.request(
-            endpoint: sport,
+            endpoint: sport.toEndpoint(),
             parameters: params
         ) { (result: Result<LeagueResponseModel, Error>) in
             

@@ -9,6 +9,7 @@ import Foundation
 
 protocol LeagueDetailsViewProtocol: AnyObject {
     var league: League! {get}
+    var sport: Sport! {get}
     func showLoading()
     func hideLoading()
     func showData()

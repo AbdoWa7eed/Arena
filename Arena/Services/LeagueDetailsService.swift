@@ -36,23 +36,29 @@ final class LeagueDetailsService: LeagueDetailsServiceProtocol {
         completion: @escaping (Result<[Event], Error>) -> Void
     ) {
         let range = makeDateRange()
-        
         let params: [String: Any] = [
             ApiParams.Key.met.rawValue: ApiParams.Met.fixtures.rawValue,
             ApiParams.Key.leagueId.rawValue: leagueId,
             ApiParams.Key.from.rawValue: range.from,
             ApiParams.Key.to.rawValue: range.to
         ]
-        
-        apiClient.request(
-            endpoint: sport.toEndpoint(),
-            parameters: params
-        ) { (result: Result<FixturesResponseModel, Error>) in
-            switch result {
-            case .success(let response):
-                completion(.success(response.result.map { $0.toEvent() }))
-            case .failure(let error):
-                completion(.failure(error))
+
+        switch sport {
+        case .football:
+            apiClient.request(endpoint: sport.toEndpoint(), parameters: params) { (result: Result<FootballFixturesResponse, Error>) in
+                completion(result.map { $0.result.map { $0.toEvent() } })
+            }
+        case .basketball:
+            apiClient.request(endpoint: sport.toEndpoint(), parameters: params) { (result: Result<BasketballFixturesResponse, Error>) in
+                completion(result.map { $0.result.map { $0.toEvent() } })
+            }
+        case .tennis:
+            apiClient.request(endpoint: sport.toEndpoint(), parameters: params) { (result: Result<TennisFixturesResponse, Error>) in
+                completion(result.map { $0.result.map { $0.toEvent() } })
+            }
+        case .cricket:
+            apiClient.request(endpoint: sport.toEndpoint(), parameters: params) { (result: Result<CricketFixturesResponse, Error>) in
+                completion(result.map { $0.result.map { $0.toEvent() } })
             }
         }
     }
