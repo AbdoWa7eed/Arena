@@ -14,9 +14,6 @@ protocol UserDefaultsManagerProtocol {
 
 class UserDefaultsManager : UserDefaultsManagerProtocol {
 
-    static let shared = UserDefaultsManager()
-    private init() {}
-
     private let defaults = UserDefaults.standard
 
     private enum Keys {

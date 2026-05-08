@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import UIKit
 
 class TeamDetailsViewController: UICollectionViewController, TeamDetailsViewProtocol {
 
@@ -31,7 +30,7 @@ class TeamDetailsViewController: UICollectionViewController, TeamDetailsViewProt
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = TeamDetailsPresenter(view: self)
+        presenter = AppContainer.shared.makeTeamDetailsPresenter(view:self, team:team)
         setupCollectionView()
         presenter.viewDidLoad()
     }

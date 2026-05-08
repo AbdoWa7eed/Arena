@@ -10,14 +10,16 @@ import Foundation
 class LeaguesPresenter: LeaguesPresenterProtocol {
 
     private weak var view: LeaguesViewProtocol?
+    private let service: LeaguesServiceProtocol
     private var sport: Sport!
     private var allLeagues: [League] = []
     private var filteredLeagues: [League] = []
     private var isSearching = false
 
-    init(view: LeaguesViewProtocol, sport: Sport) {
+    init(view: LeaguesViewProtocol, sport: Sport, service: LeaguesServiceProtocol) {
         self.view = view
         self.sport = sport
+        self.service = service
     }
 
     var numberOfLeagues: Int {
@@ -66,27 +68,21 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
 
 
     private func fetchLeagues() {
+        print("DEBUG: Starting fetch for \(sport.name)")
         view?.showLoading()
-        // TODO: replace with real API call
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+        service.fetchLeagues(sport: sport) { [weak self] result in
             guard let self = self else { return }
-            self.allLeagues = self.getDummyLeagues()
-            self.view?.hideLoading()
-            if self.allLeagues.isEmpty {
-                self.view?.showEmpty()
-            } else {
-                self.view?.showLeagues()
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let leagues):
+                    print("DEBUG: Received \(leagues.count) leagues") // Does this print?
+                    self.allLeagues = leagues
+                    leagues.isEmpty ? self.view?.showEmpty() : self.view?.showLeagues()
+                case .failure(let error):
+                    print("DEBUG: Failed with error: \(error)")
+                    self.view?.showEmpty()
+                }
             }
         }
-    }
-
-    private func getDummyLeagues() -> [League] {
-        return [
-            League(name: "Premier League", country: "England", imageUrl: "https://media.api-sports.io/football/leagues/39.png"),
-            League(name: "La Liga", country: "Spain", imageUrl: "https://media.api-sports.io/football/leagues/140.png"),
-            League(name: "Serie A", country: "Italy", imageUrl: "https://media.api-sports.io/football/leagues/135.png"),
-            League(name: "Bundesliga", country: "Germany", imageUrl: "https://media.api-sports.io/football/leagues/78.png"),
-            League(name: "Ligue 1", country: "France", imageUrl: "https://media.api-sports.io/football/leagues/61.png")
-        ]
     }
 }

@@ -8,7 +8,8 @@
 import UIKit
 
 class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsViewProtocol {
-    
+
+
     private enum CellID {
         static let event  = "EventCell"
         static let latest = "LatestEventCell"
@@ -19,13 +20,17 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
         static let section = "SectionHeaderView"
     }
 
+
     var league: League!
+    var sport: Sport!
+
     private var presenter: LeagueDetailsPresenterProtocol!
-    private var isLoading: Bool = true
+    private var isLoading = true
 
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     private let messageLabel: UILabel = UILabel.makeMessageLabel()
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = AppContainer.shared.makeLeagueDetailsPresenter(view: self)
@@ -39,19 +44,28 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
         setNavigationBarVisibilty(true)
     }
 
+
     private func setupCollectionView() {
         collectionView.collectionViewLayout = makeLayout()
         collectionView.showsVerticalScrollIndicator = false
 
-        collectionView.register(UINib(nibName: CellID.event, bundle: nil), forCellWithReuseIdentifier: CellID.event)
+        collectionView.register(UINib(nibName: CellID.event,  bundle: nil), forCellWithReuseIdentifier: CellID.event)
         collectionView.register(UINib(nibName: CellID.latest, bundle: nil), forCellWithReuseIdentifier: CellID.latest)
-        collectionView.register(UINib(nibName: CellID.team, bundle: nil), forCellWithReuseIdentifier: CellID.team)
-        collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderID.section)
+        collectionView.register(UINib(nibName: CellID.team,   bundle: nil), forCellWithReuseIdentifier: CellID.team)
+        collectionView.register(
+            SectionHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: HeaderID.section
+        )
     }
+
 
     private func makeLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
-            guard let self = self, let section = LeagueDetailsSection(rawValue: sectionIndex) else { return nil }
+            guard let self = self,
+                  let section = LeagueDetailsSection(rawValue: sectionIndex) else { return nil }
+            guard !self.isLoading, self.presenter.numberOfItems(in: section) > 0 else { return nil }
+
             return self.makeSection(for: section)
         }
     }
@@ -67,7 +81,6 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
     private func makeCarouselSection(_ section: LeagueDetailsSection) -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
 
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.92), heightDimension: .absolute(200))
@@ -77,7 +90,6 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
         layout.orthogonalScrollingBehavior = .groupPaging
         layout.interGroupSpacing = 0
         layout.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 24, trailing: 0)
-        
         if let header = makeSectionHeader(for: section) {
             layout.boundarySupplementaryItems = [header]
         }
@@ -87,7 +99,6 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
     private func makeVerticalListSection(_ section: LeagueDetailsSection) -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(120))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
 
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(120))
@@ -96,7 +107,6 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
         let layout = NSCollectionLayoutSection(group: group)
         layout.interGroupSpacing = 12
         layout.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 24, trailing: 0)
-        
         if let header = makeSectionHeader(for: section) {
             layout.boundarySupplementaryItems = [header]
         }
@@ -104,18 +114,16 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
     }
 
     private func makeHorizontalListSection(_ section: LeagueDetailsSection) -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(116), heightDimension: .absolute(130))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(120), heightDimension: .absolute(150))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let layout = NSCollectionLayoutSection(group: group)
         layout.orthogonalScrollingBehavior = .continuous
         layout.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 32, trailing: 0)
-        
         if let header = makeSectionHeader(for: section) {
             layout.boundarySupplementaryItems = [header]
         }
@@ -133,6 +141,7 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
         header.contentInsets = .zero
         return header
     }
+
 
     func showLoading() {
         isLoading = true
@@ -161,19 +170,18 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
 
     func showError(_ message: String) {
         isLoading = false
-        messageLabel.text = "message"
+        messageLabel.text = message
         collectionView.backgroundView = messageLabel
         collectionView.reloadData()
     }
-    
+
     func navigateToTeamDetails(_ team: Team) {
-        guard let storyboard = self.storyboard else {return}
+        guard let storyboard = self.storyboard else { return }
         let vc = AppRouter.makeTeamDetailsController(using: storyboard, team: team)
         navigationController?.pushViewController(vc, animated: true)
     }
-}
 
-extension LeagueDetailsViewController {
+
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         LeagueDetailsSection.allCases.count
     }
@@ -202,13 +210,16 @@ extension LeagueDetailsViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderID.section, for: indexPath) as! SectionHeaderView
+        let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: HeaderID.section,
+            for: indexPath
+        ) as! SectionHeaderView
         header.configure(title: LeagueDetailsSection(rawValue: indexPath.section)?.title ?? "")
         return header
     }
-}
 
-extension LeagueDetailsViewController {
+
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let section = LeagueDetailsSection(rawValue: indexPath.section) else { return }
         presenter.didSelectItem(in: section, at: indexPath.item)

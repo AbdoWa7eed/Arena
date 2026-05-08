@@ -10,12 +10,7 @@ import Foundation
 class SportsPresenter: SportsPresenterProtocol {
     
     private weak var view: SportsViewProtocol?
-    private var sports: [Sport] = [
-        Sport(name: "Soccer", imageName: "bg_soccer"),
-        Sport(name: "Basketball", imageName: "bg_basketball"),
-        Sport(name: "Tennis", imageName: "bg_tennis"),
-        Sport(name: "Cricket", imageName: "bg_cricket")
-    ]
+    private var sports: [Sport] = Sport.allCases
     
     init(view: SportsViewProtocol) {
         self.view = view

@@ -10,7 +10,7 @@ import Foundation
 protocol TeamDetailsPresenterProtocol {
     func viewDidLoad()
     func numberOfItems(in section: TeamDetailsSection) -> Int
-    func getTeam() -> TeamDetailsModel?
+    func getTeam() -> Team?
     func getPlayer(at index: Int) -> Player
     func hasPlayers() -> Bool
 }
