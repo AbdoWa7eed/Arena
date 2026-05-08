@@ -6,9 +6,14 @@
 //
 
 import Foundation
+struct SimpleTeam {
+    let name: String
+    let logoUrl: String
+}
+
 struct Event {
-    let homeTeam: Team
-    let awayTeam: Team
+    let homeTeam: SimpleTeam
+    let awayTeam: SimpleTeam
     let homeScore: Int?
     let awayScore: Int?
     let status:String

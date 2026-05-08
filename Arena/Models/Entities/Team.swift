@@ -1,13 +1,11 @@
 //
-//  TeamDetails.swift
+//  Team.swift
 //  Arena
 //
 //  Created by Abdelrahman on 07/05/2026.
 //
 
 import Foundation
-
-
 struct Player {
     let name: String
     let position: String
@@ -15,8 +13,9 @@ struct Player {
     let imageUrl: String
 }
 
-struct TeamDetailsModel {
-    let teamName: String
+struct Team {
+    let key: String
+    let name: String
     let logoUrl: String
     let coachName: String
     let leagueName: String

@@ -9,6 +9,7 @@ import Foundation
 
 
 struct League {
+    let key: String
     let name: String
     let country: String
     let imageUrl: String

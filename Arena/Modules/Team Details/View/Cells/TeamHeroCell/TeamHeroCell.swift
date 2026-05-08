@@ -22,8 +22,8 @@ class TeamHeroCell: UICollectionViewCell {
         setupUI()
     }
     
-    func configure(_ model: TeamDetailsModel) {
-        teamNameLabel.text = model.teamName
+    func configure(_ model: Team) {
+        teamNameLabel.text = model.name
         coachNameLabel.text = "Coach: \(model.coachName)"
         leagueTagLabel.text = model.leagueName.uppercased()
         countryTagLabel.text = model.countryName.uppercased()

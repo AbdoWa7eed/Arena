@@ -64,11 +64,36 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
 
     private func getDummyFavorites() -> [League] {
         return [
-            League(name: "Premier League", country: "England", imageUrl: "https://media.api-sports.io/football/leagues/39.png"),
-            League(name: "La Liga", country: "Spain", imageUrl: "https://media.api-sports.io/football/leagues/140.png"),
-            League(name: "Serie A", country: "Italy", imageUrl: "https://media.api-sports.io/football/leagues/135.png"),
-            League(name: "Bundesliga", country: "Germany", imageUrl: "https://media.api-sports.io/football/leagues/78.png"),
-            League(name: "Ligue 1", country: "France", imageUrl: "https://media.api-sports.io/football/leagues/61.png")
+            League(
+                key: "39",
+                name: "Premier League",
+                country: "England",
+                imageUrl: "https://media.api-sports.io/football/leagues/39.png"
+            ),
+            League(
+                key: "140",
+                name: "La Liga",
+                country: "Spain",
+                imageUrl: "https://media.api-sports.io/football/leagues/140.png"
+            ),
+            League(
+                key: "135",
+                name: "Serie A",
+                country: "Italy",
+                imageUrl: "https://media.api-sports.io/football/leagues/135.png"
+            ),
+            League(
+                key: "78",
+                name: "Bundesliga",
+                country: "Germany",
+                imageUrl: "https://media.api-sports.io/football/leagues/78.png"
+            ),
+            League(
+                key: "61",
+                name: "Ligue 1",
+                country: "France",
+                imageUrl: "https://media.api-sports.io/football/leagues/61.png"
+            )
         ]
     }
 }

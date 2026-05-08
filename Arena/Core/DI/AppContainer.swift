@@ -9,9 +9,12 @@ import Foundation
 
 final class AppContainer {
     static let shared = AppContainer()
+    
     private init() {}
 
     private let userDefaults: UserDefaultsManagerProtocol = UserDefaultsManager.shared
+    
+    private let apiClient: ApiClient = ApiClient()
 
     func makeSplashPresenter(view: SplashView) -> SplashViewPresenter {
         return SplashPresenter(view: view, userDefaults: userDefaults)
