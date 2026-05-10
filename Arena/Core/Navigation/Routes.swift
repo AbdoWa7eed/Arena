@@ -49,23 +49,25 @@ enum AppRouter {
         })
     }
     
-    static func makeLeaguesController(using storyboard: UIStoryboard, sport: Sport) -> LeaguesViewController {
+    static func makeLeaguesController(_ sport: Sport) -> LeaguesViewController {
+        let storyboard = UIStoryboard(name: Routes.mainStoryboard, bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: Routes.leaguesViewController) as! LeaguesViewController
-            vc.sport = sport
-            return vc
-        }
-    
-    static func makeLeagueDetailsController(using storyboard: UIStoryboard, league: League,sport:Sport) -> LeagueDetailsViewController {
+        vc.sport = sport
+        return vc
+    }
+
+    static func makeLeagueDetailsController(_ league: League) -> LeagueDetailsViewController {
+        let storyboard = UIStoryboard(name: Routes.mainStoryboard, bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: Routes.leagueDetailsViewController) as! LeagueDetailsViewController
-            vc.sport = sport
-            vc.league = league
-            return vc
-        }
-    
-    static func makeTeamDetailsController(using storyboard: UIStoryboard, team: Team) -> TeamDetailsViewController {
+        vc.league = league
+        return vc
+    }
+
+    static func makeTeamDetailsController(_ team: Team) -> TeamDetailsViewController {
+        let storyboard = UIStoryboard(name: Routes.mainStoryboard, bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: Routes.teamDetailsViewController) as! TeamDetailsViewController
-            vc.team = team
-            return vc
-        }
+        vc.team = team
+        return vc
+    }
 
 }

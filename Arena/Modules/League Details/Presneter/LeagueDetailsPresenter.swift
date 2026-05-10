@@ -13,16 +13,16 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
     private weak var view: LeagueDetailsViewProtocol?
     private let service: LeagueDetailsServiceProtocol
     private let league: League
-    private let sport: Sport
 
     private var upcomingEvents: [Event] = []
     private var latestEvents: [Event]   = []
     private var teams: [Team] = []
 
-    init(view: LeagueDetailsViewProtocol, league: League, sport: Sport, service: LeagueDetailsServiceProtocol) {
+    init(view: LeagueDetailsViewProtocol,
+         league: League,
+         service: LeagueDetailsServiceProtocol) {
         self.view  = view
         self.league  = league
-        self.sport = sport
         self.service = service
     }
 
@@ -56,7 +56,7 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
         
 
         group.enter()
-        service.fetchEvents(sport: sport, leagueId: league.key) { [weak self] result in
+        service.fetchEvents(league) { [weak self] result in
             if case .success(let events) = result {
                 self?.filterEvents(events)
             }
@@ -64,7 +64,7 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
         }
         
         group.enter()
-        service.fetchTeams(sport: sport, league: league) { [weak self] result in
+        service.fetchTeams(league) { [weak self] result in
             if case .success(let teams) = result {
                 self?.teams = teams
             }

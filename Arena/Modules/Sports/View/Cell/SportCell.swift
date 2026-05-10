@@ -37,6 +37,6 @@ class SportCell: UICollectionViewCell {
     
     func configure(_ sport: Sport) {
         self.sportImage.image = UIImage(named: sport.imageName)
-        self.sportLabel.text = sport.name
+        self.sportLabel.text = sport.rawValue.capitalized
     }
 }

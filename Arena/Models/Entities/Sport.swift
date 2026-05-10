@@ -7,21 +7,12 @@
 
 import Foundation
 
-enum Sport: CaseIterable {
-    case football
-    case basketball
-    case tennis
-    case cricket
-    
-    var name: String {
-        switch self {
-        case .football: return "Football"
-        case .basketball: return "Basketball"
-        case .tennis: return "Tennis"
-        case .cricket: return "Cricket"
-        }
-    }
-    
+enum Sport: String, CaseIterable {
+    case football = "football"
+    case basketball = "basketball"
+    case tennis = "tennis"
+    case cricket = "cricket"
+
     var imageName: String {
         switch self {
         case .football: return "bg_soccer"

@@ -72,10 +72,8 @@ extension SportsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter.didSelectSport(at: indexPath.row)
-
-        guard let storyboard = self.storyboard else { return }
         let sport = presenter.getSport(at: indexPath.row)
-        let leaguesVC = AppRouter.makeLeaguesController(using: storyboard, sport: sport)
+        let leaguesVC = AppRouter.makeLeaguesController(sport)
         self.navigationController?.pushViewController(leaguesVC, animated: true)
     }
     

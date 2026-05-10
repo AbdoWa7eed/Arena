@@ -43,6 +43,8 @@
 		BC83D2D92FAB9E340082EA1C /* SportsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D2D82FAB9E340082EA1C /* SportsViewProtocol.swift */; };
 		BC83D2DC2FAB9EA40082EA1C /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D2DB2FAB9EA40082EA1C /* Sport.swift */; };
 		BC83D2DE2FAB9F1F0082EA1C /* SportsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D2DD2FAB9F1F0082EA1C /* SportsPresenter.swift */; };
+		BC8B99D62FB0F79C00555F26 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B99D52FB0F79C00555F26 /* PersistenceController.swift */; };
+		BC8B99D82FB0F96300555F26 /* FavoriteLeagueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B99D72FB0F96300555F26 /* FavoriteLeagueService.swift */; };
 		BC8DF0BC2FABF67200519079 /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DF0BB2FABF67200519079 /* LeaguesViewController.swift */; };
 		BC8DF0BE2FABF6ED00519079 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DF0BD2FABF6ED00519079 /* Extensions.swift */; };
 		BC8DF0C22FAC07DC00519079 /* LeagueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DF0C02FAC07DC00519079 /* LeagueCell.swift */; };
@@ -150,6 +152,8 @@
 		BC83D2D82FAB9E340082EA1C /* SportsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewProtocol.swift; sourceTree = "<group>"; };
 		BC83D2DB2FAB9EA40082EA1C /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
 		BC83D2DD2FAB9F1F0082EA1C /* SportsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsPresenter.swift; sourceTree = "<group>"; };
+		BC8B99D52FB0F79C00555F26 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		BC8B99D72FB0F96300555F26 /* FavoriteLeagueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLeagueService.swift; sourceTree = "<group>"; };
 		BC8DF0BB2FABF67200519079 /* LeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
 		BC8DF0BD2FABF6ED00519079 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BC8DF0C02FAC07DC00519079 /* LeagueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCell.swift; sourceTree = "<group>"; };
@@ -500,6 +504,7 @@
 			children = (
 				BC9317122FAE0BFB00D11E43 /* LeaguesService.swift */,
 				BC9317222FAE170F00D11E43 /* LeagueDetailsService.swift */,
+				BC8B99D72FB0F96300555F26 /* FavoriteLeagueService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -707,6 +712,7 @@
 			children = (
 				BCFB7D0E2FAA936200CE422B /* UserDefaultsManager.swift */,
 				BC8DF0BD2FABF6ED00519079 /* Extensions.swift */,
+				BC8B99D52FB0F79C00555F26 /* PersistenceController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -881,6 +887,7 @@
 				BCFB7CEE2FAA4BA500CE422B /* SplashPresenter.swift in Sources */,
 				BC6E7A582FAD1BF40079305E /* TeamDetailsSection.swift in Sources */,
 				BC75D9322FACB1C100917C4C /* FavoritesPresenterProtocol.swift in Sources */,
+				BC8B99D82FB0F96300555F26 /* FavoriteLeagueService.swift in Sources */,
 				BC8DF0C62FAC09BE00519079 /* League.swift in Sources */,
 				BCFB7D072FAA715600CE422B /* OnboardingPage.swift in Sources */,
 				BC83D2DC2FAB9EA40082EA1C /* Sport.swift in Sources */,
@@ -912,6 +919,7 @@
 				BC6E7A332FACDF930079305E /* LeagueDetailsViewProtocol.swift in Sources */,
 				BC9317252FAE1D9000D11E43 /* TeamsResponseModel.swift in Sources */,
 				BC9317212FAE161600D11E43 /* SportFixturesResponseModels.swift in Sources */,
+				BC8B99D62FB0F79C00555F26 /* PersistenceController.swift in Sources */,
 				BC6E7A3D2FACE9850079305E /* LatestEventCell.swift in Sources */,
 				BC9317192FAE0EDE00D11E43 /* LeagueResponseModel.swift in Sources */,
 				BC83D2D42FAB98DE0082EA1C /* SportCell.swift in Sources */,
