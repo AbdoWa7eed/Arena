@@ -32,13 +32,13 @@ final class LeaguesService: LeaguesServiceProtocol {
         ]
         
         apiClient.request(
-            endpoint: sport.toEndpoint(),
+            endpoint: sport.rawValue,
             parameters: params
         ) { (result: Result<LeagueResponseModel, Error>) in
             
             switch result {
             case .success(let response):
-                completion(.success(response.result.map { $0.toLeague() }))
+                completion(.success(response.result.map { $0.toLeague(sport: sport) }))
             case .failure(let error):
                 completion(.failure(error))
             }

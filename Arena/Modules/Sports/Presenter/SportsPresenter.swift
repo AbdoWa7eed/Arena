@@ -29,6 +29,6 @@ class SportsPresenter: SportsPresenterProtocol {
     }
     
     func didSelectSport(at index: Int) {
-        print("Selected: \(sports[index].name)")
+        print("Selected: \(sports[index].rawValue)")
     }
 }

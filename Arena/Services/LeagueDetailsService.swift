@@ -9,15 +9,11 @@ import Foundation
 import Foundation
 
 protocol LeagueDetailsServiceProtocol {
-    func fetchEvents(
-        sport: Sport,
-        leagueId: String,
+    func fetchEvents(_ league: League,
         completion: @escaping (Result<[Event], Error>) -> Void
     )
     
-    func fetchTeams(
-        sport: Sport,
-        league: League,
+    func fetchTeams(_ league: League,
         completion: @escaping (Result<[Team], Error>) -> Void
     )
 }
@@ -30,42 +26,31 @@ final class LeagueDetailsService: LeagueDetailsServiceProtocol {
         self.apiClient = apiClient
     }
     
-    func fetchEvents(
-        sport: Sport,
-        leagueId: String,
+    func fetchEvents(_ league: League,
         completion: @escaping (Result<[Event], Error>) -> Void
     ) {
         let range = makeDateRange()
         let params: [String: Any] = [
             ApiParams.Key.met.rawValue: ApiParams.Met.fixtures.rawValue,
-            ApiParams.Key.leagueId.rawValue: leagueId,
+            ApiParams.Key.leagueId.rawValue: league.key,
             ApiParams.Key.from.rawValue: range.from,
             ApiParams.Key.to.rawValue: range.to
         ]
 
-        switch sport {
+        switch league.sport {
         case .football:
-            apiClient.request(endpoint: sport.toEndpoint(), parameters: params) { (result: Result<FootballFixturesResponse, Error>) in
-                completion(result.map { $0.result.map { $0.toEvent() } })
-            }
+            fetchEvents(FootballFixturesResponse.self, parameters: params, endpoint: league.sport.rawValue, completion: completion)
         case .basketball:
-            apiClient.request(endpoint: sport.toEndpoint(), parameters: params) { (result: Result<BasketballFixturesResponse, Error>) in
-                completion(result.map { $0.result.map { $0.toEvent() } })
-            }
+            fetchEvents(BasketballFixturesResponse.self, parameters: params, endpoint: league.sport.rawValue, completion: completion)
         case .tennis:
-            apiClient.request(endpoint: sport.toEndpoint(), parameters: params) { (result: Result<TennisFixturesResponse, Error>) in
-                completion(result.map { $0.result.map { $0.toEvent() } })
-            }
+            fetchEvents(TennisFixturesResponse.self, parameters: params, endpoint: league.sport.rawValue, completion: completion)
         case .cricket:
-            apiClient.request(endpoint: sport.toEndpoint(), parameters: params) { (result: Result<CricketFixturesResponse, Error>) in
-                completion(result.map { $0.result.map { $0.toEvent() } })
-            }
+            fetchEvents(CricketFixturesResponse.self, parameters: params, endpoint: league.sport.rawValue, completion: completion)
         }
     }
     
     func fetchTeams(
-        sport: Sport,
-        league: League,
+        _ league: League,
         completion: @escaping (Result<[Team], Error>) -> Void
     ) {
         let params: [String: Any] = [
@@ -74,7 +59,7 @@ final class LeagueDetailsService: LeagueDetailsServiceProtocol {
         ]
 
         apiClient.request(
-            endpoint: sport.toEndpoint(),
+            endpoint: league.sport.rawValue,
             parameters: params
         ) { (result: Result<TeamsResponseModel, Error>) in
             switch result {
@@ -85,6 +70,17 @@ final class LeagueDetailsService: LeagueDetailsServiceProtocol {
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+    
+    private func fetchEvents<T: FixturesResponse>(
+        _ type: T.Type,
+        parameters: [String: Any],
+        endpoint: String,
+        completion: @escaping (Result<[Event], Error>) -> Void
+    ) {
+        apiClient.request(endpoint: endpoint, parameters: parameters) { (result: Result<T, Error>) in
+            completion(result.map { $0.toEvents() })
         }
     }
     

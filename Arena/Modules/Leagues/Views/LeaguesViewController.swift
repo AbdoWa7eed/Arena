@@ -18,7 +18,7 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
         super.viewDidLoad()
         presenter = AppContainer.shared.makeLeaguesPresenter(view: self)
         presenter.viewDidLoad()
-        setupCustomTitleFont(title: sport.name)
+        setupCustomTitleFont(title: sport.rawValue.capitalized)
         setupTableView()
         setupSearchBar()
 
@@ -67,6 +67,11 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
         tableView.backgroundView = messageLabel
         tableView.reloadData()
     }
+    
+    func navigateToLeagueDetails(league: League) {
+        let vc = AppRouter.makeLeagueDetailsController(league)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension LeaguesViewController: UITableViewDataSource, UITableViewDelegate {
@@ -80,15 +85,13 @@ extension LeaguesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LeaguesViewController.cellIdentifier, for: indexPath) as! LeagueCell
         cell.configure(presenter.getLeague(at: indexPath.row))
+        cell.delegate = self
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.didSelectLeague(at: indexPath.row)
-        let league = presenter.getLeague(at: indexPath.row)
-        guard let storyboard = self.storyboard else {return }
-        navigationController?.pushViewController(AppRouter.makeLeagueDetailsController(using: storyboard , league: league, sport:sport), animated: true)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -110,5 +113,12 @@ extension LeaguesViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+}
+
+extension LeaguesViewController: LeagueCellDelegate {
+    func didToggleFavorite(for cell: LeagueCell, isFavorite: Bool) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        presenter.didToggleFavorite(at: indexPath.row)
     }
 }

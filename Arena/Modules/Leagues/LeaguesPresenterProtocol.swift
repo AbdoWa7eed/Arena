@@ -12,6 +12,7 @@ protocol LeaguesPresenterProtocol: AnyObject {
     func viewDidLoad()
     func getLeague(at index: Int) -> League
     func didSelectLeague(at index: Int)
+    func didToggleFavorite(at: Int)
     func didSearch(query: String)
     func didCancelSearch()
 }

@@ -10,14 +10,23 @@ import Foundation
 class FavoritesPresenter: FavoritesPresenterProtocol {
 
     private weak var view: FavoritesViewProtocol?
+    private let favoriteService: FavoriteLeagueServiceProtocol
+    private let connectivityManager: ConnectivityManager
+
     private var favorites: [League] = []
 
-    init(view: FavoritesViewProtocol) {
+    init(
+        view: FavoritesViewProtocol,
+        favoriteService: FavoriteLeagueServiceProtocol,
+        connectivityManager: ConnectivityManager
+    ) {
         self.view = view
+        self.favoriteService = favoriteService
+        self.connectivityManager = connectivityManager
     }
 
     var numberOfFavorites: Int {
-        return favorites.count
+        favorites.count
     }
 
     func viewDidLoad() {
@@ -25,21 +34,24 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
     }
 
     func getFavorite(at index: Int) -> League {
-        return favorites[index]
+        favorites[index]
     }
 
     func didSelectFavorite(at index: Int) {
-        // TODO: check internet connectivity here
-        // If no internet → view?.showError("No internet connection.")
-        // If connected → navigate to league details
+
+        if !connectivityManager.isConnected {
+            view?.showError("No internet connection.")
+            return
+        }
         let league = getFavorite(at: index)
-        view?.showError("You Selected this league : \(league.name) ")
-        print("Selected favorite: \(league.name)")
+        view?.navigateToLeagueDetails(league: league)
     }
-    
+
     func didDeleteFavorite(at index: Int) {
-        // TODO: delete from CoreData here later
+        let league = favorites[index]
+        favoriteService.deleteLeague(withKey: league.key)
         favorites.remove(at: index)
+
         if favorites.isEmpty {
             view?.showEmpty()
         } else {
@@ -49,51 +61,12 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
 
     private func fetchFavorites() {
         view?.showLoading()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
-            guard let self = self else { return }
-            // TODO: replace with actual core data fetching
-            self.favorites = self.getDummyFavorites()
-            self.view?.hideLoading()
-            if self.favorites.isEmpty {
-                self.view?.showEmpty()
-            } else {
-                self.view?.showFavorites()
-            }
+        self.favorites = self.favoriteService.fetchLeagues()
+        self.view?.hideLoading()
+        if self.favorites.isEmpty {
+            self.view?.showEmpty()
+        } else {
+            self.view?.showFavorites()
         }
-    }
-
-    private func getDummyFavorites() -> [League] {
-        return [
-            League(
-                key: "39",
-                name: "Premier League",
-                country: "England",
-                imageUrl: "https://media.api-sports.io/football/leagues/39.png"
-            ),
-            League(
-                key: "140",
-                name: "La Liga",
-                country: "Spain",
-                imageUrl: "https://media.api-sports.io/football/leagues/140.png"
-            ),
-            League(
-                key: "135",
-                name: "Serie A",
-                country: "Italy",
-                imageUrl: "https://media.api-sports.io/football/leagues/135.png"
-            ),
-            League(
-                key: "78",
-                name: "Bundesliga",
-                country: "Germany",
-                imageUrl: "https://media.api-sports.io/football/leagues/78.png"
-            ),
-            League(
-                key: "61",
-                name: "Ligue 1",
-                country: "France",
-                imageUrl: "https://media.api-sports.io/football/leagues/61.png"
-            )
-        ]
     }
 }

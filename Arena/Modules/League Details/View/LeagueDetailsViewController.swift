@@ -22,7 +22,6 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
 
 
     var league: League!
-    var sport: Sport!
 
     private var presenter: LeagueDetailsPresenterProtocol!
     private var isLoading = true
@@ -176,8 +175,7 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
     }
 
     func navigateToTeamDetails(_ team: Team) {
-        guard let storyboard = self.storyboard else { return }
-        let vc = AppRouter.makeTeamDetailsController(using: storyboard, team: team)
+        let vc = AppRouter.makeTeamDetailsController(team)
         navigationController?.pushViewController(vc, animated: true)
     }
 

@@ -20,13 +20,13 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = FavoritesPresenter(view: self)
+        presenter = AppContainer.shared.makeFavoritesPresenter(view: self)
         setupTableView()
-        presenter.viewDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter.viewDidLoad()
         setNavigationBarVisibilty(false)
     }
 
@@ -68,7 +68,8 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol {
     }
     
     func navigateToLeagueDetails(league: League) {
-        // TODO: push LeagueDetailsViewController and pass league
+        let vc = AppRouter.makeLeagueDetailsController(league)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -82,7 +83,7 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesViewController.cellIdentifier, for: indexPath) as! LeagueCell
-        cell.configure(presenter.getFavorite(at: indexPath.row))
+        cell.configure(presenter.getFavorite(at: indexPath.row), showFavoriteButton: false)
         return cell
     }
 

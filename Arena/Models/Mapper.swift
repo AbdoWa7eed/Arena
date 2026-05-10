@@ -6,29 +6,22 @@
 //
 
 import Foundation
+import CoreData
 
 extension LeagueItemResponse {
     
-    func toLeague() -> League {
+    func toLeague(sport: Sport) -> League {
         League(
             key: leagueKey,
             name: leagueName,
+            sport: sport,
             country: countryName ?? "Unknown",
-            imageUrl: leagueLogo ?? ""
+            imageUrl: leagueLogo ?? "",
+            isFavorite: false
         )
     }
 }
 
-extension Sport {
-    func toEndpoint() -> ApiConstants.Endpoint {
-        switch self {
-        case .football: return .football
-        case .basketball: return .basketball
-        case .tennis: return .tennis
-        case .cricket: return .cricket
-        }
-    }
-}
 
 private func parseScores(from result: String?) -> (home: Int?, away: Int?) {
     guard let result = result, result != "-", result.contains("-") else {
@@ -124,6 +117,29 @@ extension PlayerResponseModel {
             position: playerType,
             number: playerNumber,
             imageUrl: playerImage ?? ""
+        )
+    }
+}
+
+
+
+extension LeagueEntity {
+
+    func update(from league: League) {
+        self.key = league.key
+        self.name = league.name
+        self.country = league.country
+        self.imageUrl = league.imageUrl
+        self.sport = league.sport.rawValue
+    }
+
+    func toLeague() -> League {
+        League(
+            key: key ?? "",
+            name: name ?? "",
+            sport: Sport(rawValue: sport ?? "") ?? .football, country: country ?? "",
+            imageUrl: imageUrl ?? "",
+            isFavorite: true
         )
     }
 }

@@ -11,15 +11,17 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
 
     private weak var view: LeaguesViewProtocol?
     private let service: LeaguesServiceProtocol
+    private let favoriteService: FavoriteLeagueServiceProtocol
     private var sport: Sport!
     private var allLeagues: [League] = []
     private var filteredLeagues: [League] = []
     private var isSearching = false
 
-    init(view: LeaguesViewProtocol, sport: Sport, service: LeaguesServiceProtocol) {
+    init(view: LeaguesViewProtocol, sport: Sport, service: LeaguesServiceProtocol, favoriteService: FavoriteLeagueServiceProtocol) {
         self.view = view
         self.sport = sport
         self.service = service
+        self.favoriteService = favoriteService
     }
 
     var numberOfLeagues: Int {
@@ -36,7 +38,19 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
 
     func didSelectLeague(at index: Int) {
         let league = getLeague(at: index)
-        print("Selected: \(league.name)")
+        view?.navigateToLeagueDetails(league: league)
+    }
+
+    func didToggleFavorite(at index: Int) {
+        let league = isSearching ? filteredLeagues[index] : allLeagues[index]
+        if league.isFavorite {
+            favoriteService.deleteLeague(withKey: league.key)
+        } else {
+            favoriteService.saveLeague(league)
+        }
+        let newState = !league.isFavorite
+        update(in: &allLeagues, key: league.key, isFavorite: newState)
+        update(in: &filteredLeagues, key: league.key, isFavorite: newState)
     }
 
     func didSearch(query: String) {
@@ -49,40 +63,47 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
             $0.name.lowercased().contains(query.lowercased()) ||
             $0.country.lowercased().contains(query.lowercased())
         }
-        if filteredLeagues.isEmpty {
-            view?.showEmpty()
-        } else {
-            view?.showLeagues()
-        }
+        filteredLeagues.isEmpty ? view?.showEmpty() : view?.showLeagues()
     }
 
     func didCancelSearch() {
         isSearching = false
         filteredLeagues = []
-        if allLeagues.isEmpty {
-            view?.showEmpty()
-        } else {
-            view?.showLeagues()
-        }
+        allLeagues.isEmpty ? view?.showEmpty() : view?.showLeagues()
     }
 
-
     private func fetchLeagues() {
-        print("DEBUG: Starting fetch for \(sport.name)")
         view?.showLoading()
         service.fetchLeagues(sport: sport) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
                 case .success(let leagues):
-                    print("DEBUG: Received \(leagues.count) leagues") // Does this print?
-                    self.allLeagues = leagues
-                    leagues.isEmpty ? self.view?.showEmpty() : self.view?.showLeagues()
+                    self.handleFetchSuccess(leagues)
                 case .failure(let error):
-                    print("DEBUG: Failed with error: \(error)")
-                    self.view?.showEmpty()
+                    self.view?.showError(error.localizedDescription)
                 }
             }
         }
+    }
+
+    private func handleFetchSuccess(_ leagues: [League]) {
+        allLeagues = mergeWithFavorites(leagues)
+        allLeagues.isEmpty ? view?.showEmpty() : view?.showLeagues()
+    }
+
+
+    private func mergeWithFavorites(_ leagues: [League]) -> [League] {
+        let favoriteKeys = Set(favoriteService.fetchLeagues().map { $0.key })
+        return leagues.map {
+            var league = $0
+            league.isFavorite = favoriteKeys.contains($0.key)
+            return league
+        }
+    }
+
+    private func update(in array: inout [League], key: String, isFavorite: Bool) {
+        guard let index = array.firstIndex(where: { $0.key == key }) else { return }
+        array[index].isFavorite = isFavorite
     }
 }

@@ -17,7 +17,7 @@ final class ApiClient {
     }
             
     func request<T: Decodable>(
-        endpoint: ApiConstants.Endpoint,
+        endpoint: String,
         parameters: Parameters = [:],
         completion: @escaping (Result<T, Error>) -> Void
     ) {
@@ -27,7 +27,7 @@ final class ApiClient {
             return
         }
         
-        let url = "\(ApiConstants.baseUrl)/\(endpoint.rawValue)"
+        let url = "\(ApiConstants.baseUrl)/\(endpoint)"
         
         var parameters = parameters
         parameters[ApiParams.Key.apiKey.rawValue] = ApiConstants.apiKey
@@ -35,14 +35,9 @@ final class ApiClient {
         AF.request(url, method: .get, parameters: parameters)
             .validate()
             .responseDecodable(of: T.self) { response in
-                
-                print("Request URL:")
-                print(response.request?.url?.absoluteString ?? "Invalid URL")
-                
                 switch response.result {
                 case .success(let data):
                     completion(.success(data))
-                    
                 case .failure(let error):
                     print(error)
                     completion(.failure(

@@ -11,6 +11,8 @@ import Foundation
 struct League {
     let key: String
     let name: String
+    let sport: Sport
     let country: String
     let imageUrl: String
+    var isFavorite: Bool
 }

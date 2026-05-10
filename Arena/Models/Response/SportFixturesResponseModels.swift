@@ -113,3 +113,23 @@ struct CricketEventResponse: Decodable {
         case eventTime = "event_time"
     }
 }
+
+protocol FixturesResponse: Decodable {
+    func toEvents() -> [Event]
+}
+
+extension FootballFixturesResponse: FixturesResponse {
+    func toEvents() -> [Event] { result.map { $0.toEvent() } }
+}
+
+extension BasketballFixturesResponse: FixturesResponse {
+    func toEvents() -> [Event] { result.map { $0.toEvent() } }
+}
+
+extension TennisFixturesResponse: FixturesResponse {
+    func toEvents() -> [Event] { result.map { $0.toEvent() } }
+}
+
+extension CricketFixturesResponse: FixturesResponse {
+    func toEvents() -> [Event] { result.map { $0.toEvent() } }
+}
