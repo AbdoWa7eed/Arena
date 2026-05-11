@@ -43,10 +43,6 @@ enum NetworkError: LocalizedError {
             return .serverError(message)
         }
 
-        if let statusCode = statusCode {
-            return .serverError("An Unknwon Error Occurred")
-        }
-
-        return .invalidResponse
+        return .serverError("An Unknwon Error Occurred")
     }
 }

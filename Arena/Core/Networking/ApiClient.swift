@@ -29,7 +29,6 @@ final class ApiClient {
         AF.request(url, method: .get, parameters: parameters)
             .validate()
             .responseDecodable(of: T.self) { response in
-                print(response.request?.url)
                 switch response.result {
                 case .success(let data):
                     completion(.success(data))
