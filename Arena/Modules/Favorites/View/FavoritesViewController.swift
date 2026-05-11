@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController, FavoritesViewProtocol {
+class FavoritesViewController: UIViewController, FavoritesViewProtocol  {
 
     @IBOutlet weak var tableView: UITableView!
     static let cellIdentifier = "LeagueCell"

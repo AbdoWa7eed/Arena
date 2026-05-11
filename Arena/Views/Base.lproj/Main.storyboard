@@ -304,10 +304,10 @@
             </objects>
             <point key="canvasLocation" x="-1913" y="-527"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="P6M-xW-dpN">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabBarController" id="A6r-L8-o0B" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" id="A6r-L8-o0B" customClass="MainTabBarController" customModule="Arena" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="kCF-Pe-3qR"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zH6-oo-U0f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

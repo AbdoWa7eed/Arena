@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SportsViewController: UIViewController, SportsViewProtocol {
+class SportsViewController: UIViewController, SportsViewProtocol{
 
     @IBOutlet weak var collectionView: UICollectionView!
     
