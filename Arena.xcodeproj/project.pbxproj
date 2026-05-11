@@ -45,6 +45,8 @@
 		BC83D2DE2FAB9F1F0082EA1C /* SportsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D2DD2FAB9F1F0082EA1C /* SportsPresenter.swift */; };
 		BC8B99D62FB0F79C00555F26 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B99D52FB0F79C00555F26 /* PersistenceController.swift */; };
 		BC8B99D82FB0F96300555F26 /* FavoriteLeagueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B99D72FB0F96300555F26 /* FavoriteLeagueService.swift */; };
+		BC8B99DC2FB1419D00555F26 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B99DB2FB1419D00555F26 /* MainTabBarController.swift */; };
+		BC8B99DF2FB1472400555F26 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B99DE2FB1472400555F26 /* HeaderView.swift */; };
 		BC8DF0BC2FABF67200519079 /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DF0BB2FABF67200519079 /* LeaguesViewController.swift */; };
 		BC8DF0BE2FABF6ED00519079 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DF0BD2FABF6ED00519079 /* Extensions.swift */; };
 		BC8DF0C22FAC07DC00519079 /* LeagueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DF0C02FAC07DC00519079 /* LeagueCell.swift */; };
@@ -154,6 +156,8 @@
 		BC83D2DD2FAB9F1F0082EA1C /* SportsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsPresenter.swift; sourceTree = "<group>"; };
 		BC8B99D52FB0F79C00555F26 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		BC8B99D72FB0F96300555F26 /* FavoriteLeagueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLeagueService.swift; sourceTree = "<group>"; };
+		BC8B99DB2FB1419D00555F26 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		BC8B99DE2FB1472400555F26 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		BC8DF0BB2FABF67200519079 /* LeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
 		BC8DF0BD2FABF6ED00519079 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BC8DF0C02FAC07DC00519079 /* LeagueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCell.swift; sourceTree = "<group>"; };
@@ -398,8 +402,10 @@
 		BC82D0CF2FAB61410006A28F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC8B99DD2FB146B200555F26 /* Header */,
 				BC8DF0BF2FAC07B900519079 /* Cells */,
 				BCA5E8722FA9071600C7D39E /* Main.storyboard */,
+				BC8B99DB2FB1419D00555F26 /* MainTabBarController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -449,6 +455,14 @@
 				BC93171C2FAE114400D11E43 /* Mapper.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		BC8B99DD2FB146B200555F26 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				BC8B99DE2FB1472400555F26 /* HeaderView.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		BC8DF0B82FABF63600519079 /* Leagues */ = {
@@ -891,9 +905,11 @@
 				BC8DF0C62FAC09BE00519079 /* League.swift in Sources */,
 				BCFB7D072FAA715600CE422B /* OnboardingPage.swift in Sources */,
 				BC83D2DC2FAB9EA40082EA1C /* Sport.swift in Sources */,
+				BC8B99DC2FB1419D00555F26 /* MainTabBarController.swift in Sources */,
 				BCFB7D0F2FAA936200CE422B /* UserDefaultsManager.swift in Sources */,
 				BC9317232FAE170F00D11E43 /* LeagueDetailsService.swift in Sources */,
 				BC8DF0BC2FABF67200519079 /* LeaguesViewController.swift in Sources */,
+				BC8B99DF2FB1472400555F26 /* HeaderView.swift in Sources */,
 				BC83D2D02FAB984E0082EA1C /* SportsViewController.swift in Sources */,
 				BCFB7CEC2FAA4AA100CE422B /* SplashPresenterProtocol.swift in Sources */,
 				BCFB7D0C2FAA8CA600CE422B /* OnboardingViewController.swift in Sources */,
