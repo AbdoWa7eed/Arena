@@ -55,7 +55,7 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
         if favorites.isEmpty {
             view?.showEmpty()
         } else {
-            view?.showFavorites()
+            view?.deleteFavorite(at: index)
         }
     }
 

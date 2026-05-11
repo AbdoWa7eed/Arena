@@ -63,7 +63,7 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
     }
 
     func showError(_ message: String) {
-        messageLabel.text = "Something went wrong:\n\(message)"
+        messageLabel.text = message
         tableView.backgroundView = messageLabel
         tableView.reloadData()
     }

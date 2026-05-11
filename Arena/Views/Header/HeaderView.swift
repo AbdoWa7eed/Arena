@@ -70,6 +70,7 @@ class HeaderView: UIView {
     func updateIcon() {
         let icon = currentIsDark ? "sun.max.fill" : "moon.fill"
         themeButton.setImage(UIImage(systemName: icon), for: .normal)
+        themeButton.tintColor = UIColor(named: "PrimaryBrand")
     }
 
     private func applyTheme(_ style: UIUserInterfaceStyle) {

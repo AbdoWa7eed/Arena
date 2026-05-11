@@ -51,30 +51,41 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
 
     private func fetchData() {
         view?.showLoading()
-        
         let group = DispatchGroup()
-        
+        var eventsError: Error?
+        var teamsError: Error?
 
         group.enter()
         service.fetchEvents(league) { [weak self] result in
-            if case .success(let events) = result {
+            switch result {
+            case .success(let events):
                 self?.filterEvents(events)
+            case .failure(let error):
+                eventsError = error
             }
             group.leave()
         }
-        
+
         group.enter()
         service.fetchTeams(league) { [weak self] result in
-            if case .success(let teams) = result {
+            switch result {
+            case .success(let teams):
                 self?.teams = teams
+            case .failure(let error):
+                teamsError = error
             }
             group.leave()
         }
-        
+
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
             self.view?.hideLoading()
-            
+
+            if eventsError != nil && teamsError != nil {
+                self.view?.showError(eventsError!.localizedDescription)
+                return
+            }
+
             if self.upcomingEvents.isEmpty && self.latestEvents.isEmpty && self.teams.isEmpty {
                 self.view?.showEmpty()
             } else {

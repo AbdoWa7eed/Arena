@@ -8,11 +8,6 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Lexend-Bold.ttf">
-            <string>Lexend-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Favorites-->
         <scene sceneID="wo4-Oe-7jO">
@@ -22,14 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorites" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRz-iF-Ciq">
-                                <rect key="frame" x="20" y="88" width="394" height="52.5"/>
-                                <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="42"/>
-                                <color key="textColor" name="PrimaryBrand"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gSN-T7-Dm5">
-                                <rect key="frame" x="0.0" y="140.5" width="414" height="672.5"/>
+                                <rect key="frame" x="0.0" y="148" width="414" height="665"/>
                                 <color key="backgroundColor" name="PrimaryBackground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LeagueCell" id="aYD-tb-x2u">
@@ -46,12 +35,9 @@
                         <viewLayoutGuide key="safeArea" id="I06-oC-rlF"/>
                         <color key="backgroundColor" name="PrimaryBackground"/>
                         <constraints>
-                            <constraint firstItem="ZRz-iF-Ciq" firstAttribute="top" secondItem="I06-oC-rlF" secondAttribute="top" id="3GQ-D4-KBF"/>
-                            <constraint firstItem="gSN-T7-Dm5" firstAttribute="top" secondItem="ZRz-iF-Ciq" secondAttribute="bottom" id="Ery-nS-4SX"/>
+                            <constraint firstItem="gSN-T7-Dm5" firstAttribute="top" secondItem="I06-oC-rlF" secondAttribute="top" constant="60" id="7jF-Q5-0N4"/>
                             <constraint firstItem="gSN-T7-Dm5" firstAttribute="leading" secondItem="I06-oC-rlF" secondAttribute="leading" id="Gc4-W2-fuY"/>
                             <constraint firstItem="I06-oC-rlF" firstAttribute="bottom" secondItem="gSN-T7-Dm5" secondAttribute="bottom" id="Nub-YB-mjI"/>
-                            <constraint firstItem="I06-oC-rlF" firstAttribute="trailing" secondItem="ZRz-iF-Ciq" secondAttribute="trailing" id="cUD-P6-gdi"/>
-                            <constraint firstItem="ZRz-iF-Ciq" firstAttribute="leading" secondItem="I06-oC-rlF" secondAttribute="leading" constant="20" id="j1y-v4-iE7"/>
                             <constraint firstItem="I06-oC-rlF" firstAttribute="trailing" secondItem="gSN-T7-Dm5" secondAttribute="trailing" id="tud-gx-OmB"/>
                         </constraints>
                     </view>
@@ -75,7 +61,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LS0-YE-huC">
-                                <rect key="frame" x="0.0" y="140.5" width="414" height="672.5"/>
+                                <rect key="frame" x="0.0" y="148" width="414" height="665"/>
                                 <color key="backgroundColor" name="PrimaryBackground"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n5A-bP-ywg">
                                     <size key="itemSize" width="128" height="128"/>
@@ -97,22 +83,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arena" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqY-DH-Hbr">
-                                <rect key="frame" x="20" y="88" width="394" height="52.5"/>
-                                <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="42"/>
-                                <color key="textColor" name="PrimaryBrand"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6e0-o7-cP8"/>
                         <color key="backgroundColor" name="PrimaryBackground"/>
                         <constraints>
-                            <constraint firstItem="6e0-o7-cP8" firstAttribute="trailing" secondItem="eqY-DH-Hbr" secondAttribute="trailing" id="5il-gd-4Zs"/>
-                            <constraint firstItem="eqY-DH-Hbr" firstAttribute="top" secondItem="6e0-o7-cP8" secondAttribute="top" id="Fbc-8X-CpY"/>
-                            <constraint firstItem="eqY-DH-Hbr" firstAttribute="leading" secondItem="6e0-o7-cP8" secondAttribute="leading" constant="20" id="i8V-cp-F3X"/>
+                            <constraint firstItem="LS0-YE-huC" firstAttribute="top" secondItem="6e0-o7-cP8" secondAttribute="top" constant="60" id="ojA-Mg-XvJ"/>
                             <constraint firstItem="6e0-o7-cP8" firstAttribute="trailing" secondItem="LS0-YE-huC" secondAttribute="trailing" id="pAl-0s-AOe"/>
                             <constraint firstItem="LS0-YE-huC" firstAttribute="leading" secondItem="6e0-o7-cP8" secondAttribute="leading" id="rM8-ZF-1xH"/>
-                            <constraint firstItem="LS0-YE-huC" firstAttribute="top" secondItem="eqY-DH-Hbr" secondAttribute="bottom" id="yxG-Qn-L97"/>
                             <constraint firstItem="6e0-o7-cP8" firstAttribute="bottom" secondItem="LS0-YE-huC" secondAttribute="bottom" id="zW4-4J-YHr"/>
                         </constraints>
                     </view>
@@ -335,9 +312,6 @@
         </namedColor>
         <namedColor name="PrimaryBlue">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="PrimaryBrand">
-            <color red="0.0" green="0.34509803921568627" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -42,8 +42,8 @@ class EventCell: UICollectionViewCell {
     }
 
     func configure(_ event: Event) {
-        homeTeamImageView.sd_setImage(with: URL(string: event.homeTeam.logoUrl), placeholderImage: UIImage(named: "placeholder_team"))
-        awayTeamImageView.sd_setImage(with: URL(string: event.awayTeam.logoUrl), placeholderImage: UIImage(named: "placeholder_team"))
+        homeTeamImageView.sd_setImage(with: URL(string: event.homeTeam.logoUrl), placeholderImage: UIImage(named: "team_placeholder"))
+        awayTeamImageView.sd_setImage(with: URL(string: event.awayTeam.logoUrl), placeholderImage: UIImage(named: "team_placeholder"))
         homeTeamLabel.text = event.homeTeam.name
         awayTeamLabel.text = event.awayTeam.name
         dateTimeLabel.text = "\(event.date) • \(event.time)"

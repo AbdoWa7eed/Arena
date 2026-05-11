@@ -35,7 +35,10 @@ class TeamHeroCell: UICollectionViewCell {
             leagueTagLabel.superview?.isHidden = true
         }
 
-        if let country = model.countryName, !country.isEmpty {
+        if let country = model.countryName,
+            !country.isEmpty,
+            !country.lowercased().elementsEqual("unknown")
+        {
             countryTagLabel.text = country.uppercased()
             countryTagLabel.superview?.isHidden = false
         } else {

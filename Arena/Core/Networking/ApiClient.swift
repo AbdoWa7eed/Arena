@@ -21,30 +21,24 @@ final class ApiClient {
         parameters: Parameters = [:],
         completion: @escaping (Result<T, Error>) -> Void
     ) {
-        
-        guard connectivity.isConnected else {
-            completion(.failure(NetworkError.noInternet))
-            return
-        }
-        
         let url = "\(ApiConstants.baseUrl)/\(endpoint)"
-        
+
         var parameters = parameters
         parameters[ApiParams.Key.apiKey.rawValue] = ApiConstants.apiKey
-        
+
         AF.request(url, method: .get, parameters: parameters)
             .validate()
             .responseDecodable(of: T.self) { response in
+                print(response.request?.url)
                 switch response.result {
                 case .success(let data):
                     completion(.success(data))
                 case .failure(let error):
-                    print(error)
-                    completion(.failure(
-                        error.isResponseSerializationError
-                        ? NetworkError.decodingError
-                        : error
-                    ))
+                    completion(.failure(NetworkError.map(
+                        error,
+                        data: response.data,
+                        statusCode: response.response?.statusCode
+                    )))
                 }
             }
     }
