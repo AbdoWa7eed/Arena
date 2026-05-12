@@ -20,7 +20,7 @@ final class AppContainer {
     }
     
     private let connectivityManager: ConnectivityManager
-    private let apiClient: ApiClient
+    private let apiClient: ApiClientProtocol
     
     private let _userDefaults: UserDefaultsManagerProtocol
         var userDefaults: UserDefaultsManagerProtocol {
