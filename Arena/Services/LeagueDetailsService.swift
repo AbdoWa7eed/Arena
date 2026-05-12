@@ -20,9 +20,9 @@ protocol LeagueDetailsServiceProtocol {
 
 final class LeagueDetailsService: LeagueDetailsServiceProtocol {
     
-    private let apiClient: ApiClient
+    private let apiClient: ApiClientProtocol
     
-    init(apiClient: ApiClient) {
+    init(apiClient: ApiClientProtocol) {
         self.apiClient = apiClient
     }
     
@@ -39,13 +39,25 @@ final class LeagueDetailsService: LeagueDetailsServiceProtocol {
 
         switch league.sport {
         case .football:
-            fetchEvents(FootballFixturesResponse.self, parameters: params, endpoint: league.sport.rawValue, completion: completion)
+            fetchEvents(FootballFixturesResponse.self,
+                        parameters: params,
+                        endpoint: league.sport.rawValue,
+                        completion: completion)
         case .basketball:
-            fetchEvents(BasketballFixturesResponse.self, parameters: params, endpoint: league.sport.rawValue, completion: completion)
+            fetchEvents(BasketballFixturesResponse.self,
+                        parameters: params,
+                        endpoint: league.sport.rawValue,
+                        completion: completion)
         case .tennis:
-            fetchEvents(TennisFixturesResponse.self, parameters: params, endpoint: league.sport.rawValue, completion: completion)
+            fetchEvents(TennisFixturesResponse.self,
+                        parameters: params,
+                        endpoint: league.sport.rawValue,
+                        completion: completion)
         case .cricket:
-            fetchEvents(CricketFixturesResponse.self, parameters: params, endpoint: league.sport.rawValue, completion: completion)
+            fetchEvents(CricketFixturesResponse.self,
+                        parameters: params,
+                        endpoint: league.sport.rawValue,
+                        completion: completion)
         }
     }
     

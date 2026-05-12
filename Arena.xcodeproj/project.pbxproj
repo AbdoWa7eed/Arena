@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC6A0B952FB374AE00AC52CE /* MockApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A0B942FB374AE00AC52CE /* MockApiClient.swift */; };
+		BC6A0B972FB3753400AC52CE /* LeaguesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A0B962FB3753400AC52CE /* LeaguesServiceTests.swift */; };
+		BC6A0B992FB3794E00AC52CE /* LeagueDetailsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A0B982FB3794E00AC52CE /* LeagueDetailsServiceTests.swift */; };
 		BC6E7A312FACDEFC0079305E /* LeagueDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E7A302FACDEFC0079305E /* LeagueDetailsPresenter.swift */; };
 		BC6E7A332FACDF930079305E /* LeagueDetailsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E7A322FACDF930079305E /* LeagueDetailsViewProtocol.swift */; };
 		BC6E7A352FACDFB20079305E /* LeagueDetailsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E7A342FACDFB20079305E /* LeagueDetailsPresenterProtocol.swift */; };
@@ -118,6 +121,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC6A0B942FB374AE00AC52CE /* MockApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiClient.swift; sourceTree = "<group>"; };
+		BC6A0B962FB3753400AC52CE /* LeaguesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesServiceTests.swift; sourceTree = "<group>"; };
+		BC6A0B982FB3794E00AC52CE /* LeagueDetailsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetailsServiceTests.swift; sourceTree = "<group>"; };
 		BC6E7A302FACDEFC0079305E /* LeagueDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetailsPresenter.swift; sourceTree = "<group>"; };
 		BC6E7A322FACDF930079305E /* LeagueDetailsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetailsViewProtocol.swift; sourceTree = "<group>"; };
 		BC6E7A342FACDFB20079305E /* LeagueDetailsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetailsPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -240,6 +246,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC6A0B9A2FB37E7700AC52CE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BC6A0B942FB374AE00AC52CE /* MockApiClient.swift */,
+				BC6A0B962FB3753400AC52CE /* LeaguesServiceTests.swift */,
+				BC6A0B982FB3794E00AC52CE /* LeagueDetailsServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		BC6E7A3A2FACE9730079305E /* LatestEventCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,6 +603,7 @@
 		BCA5E8852FA9071800C7D39E /* ArenaTests */ = {
 			isa = PBXGroup;
 			children = (
+				BC6A0B9A2FB37E7700AC52CE /* Services */,
 				BCA5E8862FA9071800C7D39E /* ArenaTests.swift */,
 			);
 			path = ArenaTests;
@@ -960,7 +977,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6A0B972FB3753400AC52CE /* LeaguesServiceTests.swift in Sources */,
 				BCA5E8872FA9071800C7D39E /* ArenaTests.swift in Sources */,
+				BC6A0B952FB374AE00AC52CE /* MockApiClient.swift in Sources */,
+				BC6A0B992FB3794E00AC52CE /* LeagueDetailsServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

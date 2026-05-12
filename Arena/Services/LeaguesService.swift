@@ -16,9 +16,9 @@ protocol LeaguesServiceProtocol: AnyObject {
 
 final class LeaguesService: LeaguesServiceProtocol {
     
-    private let apiClient: ApiClient
+    private let apiClient: ApiClientProtocol
     
-    init(apiClient: ApiClient) {
+    init(apiClient: ApiClientProtocol) {
         self.apiClient = apiClient
     }
     

@@ -6,10 +6,14 @@
 //
 // SportFixturesResponseModels.swift
 
-
 import Foundation
+
 struct FootballFixturesResponse: Decodable {
     let result: [FootballEventResponse]
+
+    init(result: [FootballEventResponse]) {
+        self.result = result
+    }
 }
 
 struct FootballEventResponse: Decodable {
@@ -21,6 +25,17 @@ struct FootballEventResponse: Decodable {
     let eventStatus: String?
     let eventDate: String?
     let eventTime: String?
+
+    init(eventHomeTeam: String?, eventAwayTeam: String?, homeTeamLogo: String?, awayTeamLogo: String?, eventFinalResult: String?, eventStatus: String?, eventDate: String?, eventTime: String?) {
+        self.eventHomeTeam = eventHomeTeam
+        self.eventAwayTeam = eventAwayTeam
+        self.homeTeamLogo = homeTeamLogo
+        self.awayTeamLogo = awayTeamLogo
+        self.eventFinalResult = eventFinalResult
+        self.eventStatus = eventStatus
+        self.eventDate = eventDate
+        self.eventTime = eventTime
+    }
 
     enum CodingKeys: String, CodingKey {
         case eventHomeTeam = "event_home_team"
@@ -36,6 +51,10 @@ struct FootballEventResponse: Decodable {
 
 struct BasketballFixturesResponse: Decodable {
     let result: [BasketballEventResponse]
+
+    init(result: [BasketballEventResponse]) {
+        self.result = result
+    }
 }
 
 struct BasketballEventResponse: Decodable {
@@ -47,6 +66,17 @@ struct BasketballEventResponse: Decodable {
     let eventStatus: String?
     let eventDate: String?
     let eventTime: String?
+
+    init(eventHomeTeam: String?, eventAwayTeam: String?, homeTeamLogo: String?, awayTeamLogo: String?, eventFinalResult: String?, eventStatus: String?, eventDate: String?, eventTime: String?) {
+        self.eventHomeTeam = eventHomeTeam
+        self.eventAwayTeam = eventAwayTeam
+        self.homeTeamLogo = homeTeamLogo
+        self.awayTeamLogo = awayTeamLogo
+        self.eventFinalResult = eventFinalResult
+        self.eventStatus = eventStatus
+        self.eventDate = eventDate
+        self.eventTime = eventTime
+    }
 
     enum CodingKeys: String, CodingKey {
         case eventHomeTeam = "event_home_team"
@@ -62,6 +92,10 @@ struct BasketballEventResponse: Decodable {
 
 struct TennisFixturesResponse: Decodable {
     let result: [TennisEventResponse]
+
+    init(result: [TennisEventResponse]) {
+        self.result = result
+    }
 }
 
 struct TennisEventResponse: Decodable {
@@ -73,6 +107,17 @@ struct TennisEventResponse: Decodable {
     let eventStatus: String?
     let eventDate: String?
     let eventTime: String?
+
+    init(firstPlayer: String?, secondPlayer: String?, firstPlayerLogo: String?, secondPlayerLogo: String?, eventFinalResult: String?, eventStatus: String?, eventDate: String?, eventTime: String?) {
+        self.firstPlayer = firstPlayer
+        self.secondPlayer = secondPlayer
+        self.firstPlayerLogo = firstPlayerLogo
+        self.secondPlayerLogo = secondPlayerLogo
+        self.eventFinalResult = eventFinalResult
+        self.eventStatus = eventStatus
+        self.eventDate = eventDate
+        self.eventTime = eventTime
+    }
 
     enum CodingKeys: String, CodingKey {
         case firstPlayer = "event_first_player"
@@ -88,6 +133,10 @@ struct TennisEventResponse: Decodable {
 
 struct CricketFixturesResponse: Decodable {
     let result: [CricketEventResponse]
+
+    init(result: [CricketEventResponse]) {
+        self.result = result
+    }
 }
 
 struct CricketEventResponse: Decodable {
@@ -100,6 +149,18 @@ struct CricketEventResponse: Decodable {
     let eventStatus: String?
     let eventDate: String?
     let eventTime: String?
+
+    init(eventHomeTeam: String?, eventAwayTeam: String?, homeTeamLogo: String?, awayTeamLogo: String?, homeFinalResult: String?, awayFinalResult: String?, eventStatus: String?, eventDate: String?, eventTime: String?) {
+        self.eventHomeTeam = eventHomeTeam
+        self.eventAwayTeam = eventAwayTeam
+        self.homeTeamLogo = homeTeamLogo
+        self.awayTeamLogo = awayTeamLogo
+        self.homeFinalResult = homeFinalResult
+        self.awayFinalResult = awayFinalResult
+        self.eventStatus = eventStatus
+        self.eventDate = eventDate
+        self.eventTime = eventTime
+    }
 
     enum CodingKeys: String, CodingKey {
         case eventHomeTeam = "event_home_team"

@@ -8,7 +8,15 @@
 import Foundation
 import Alamofire
 
-final class ApiClient {
+protocol ApiClientProtocol {
+    func request<T: Decodable>(
+        endpoint: String,
+        parameters: Parameters,
+        completion: @escaping (Result<T, Error>) -> Void
+    )
+}
+
+final class ApiClient : ApiClientProtocol{
     
     private let connectivity: ConnectivityManager
     

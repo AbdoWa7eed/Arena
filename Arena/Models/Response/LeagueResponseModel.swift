@@ -26,6 +26,13 @@ struct LeagueItemResponse: Decodable {
         case leagueLogo = "league_logo"
     }
     
+    init(leagueKey: String, leagueName: String, countryName: String?, leagueLogo: String?) {
+            self.leagueKey = leagueKey
+            self.leagueName = leagueName
+            self.countryName = countryName
+            self.leagueLogo = leagueLogo
+        }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
