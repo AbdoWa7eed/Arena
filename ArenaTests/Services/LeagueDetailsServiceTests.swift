@@ -5,17 +5,12 @@
 //  Created by Abdelrahman on 12/05/2026.
 //
 
-import Foundation
-import XCTest
-import Alamofire
-@testable import Arena
-
-import Foundation
 import XCTest
 import Alamofire
 @testable import Arena
 
 final class LeagueDetailsServiceTests: XCTestCase {
+
     var service: LeagueDetailsService!
     var mockClient: MockApiClient!
 
@@ -32,7 +27,7 @@ final class LeagueDetailsServiceTests: XCTestCase {
     }
 
     private func makeLeague(sport: Sport) -> League {
-        League(key: "1", name: "Test League", sport: sport, country: "Egypt", imageUrl: "", isFavorite:false)
+        League(key: "1", name: "Test League", sport: sport, country: "Egypt", imageUrl: "", isFavorite: false)
     }
 
     private func makeTeamItem() -> TeamItemResponse {
@@ -93,6 +88,7 @@ final class LeagueDetailsServiceTests: XCTestCase {
     }
 
     func testFetchTeams_Success() {
+        let expectation = expectation(description: "fetchTeams succeeds")
         let league = makeLeague(sport: .football)
         mockClient.result = .success(TeamsResponseModel(result: [makeTeamItem()]))
 
@@ -106,12 +102,16 @@ final class LeagueDetailsServiceTests: XCTestCase {
             case .failure:
                 XCTFail("Expected success but got failure")
             }
+            expectation.fulfill()
         }
+
+        waitForExpectations(timeout: 1)
     }
 
     func testFetchTeams_Failure() {
+        let expectation = expectation(description: "fetchTeams fails")
         let league = makeLeague(sport: .football)
-        mockClient.result = .failure(NSError(domain: "network", code: 500))
+        mockClient.shouldFail = true
 
         service.fetchTeams(league) { result in
             switch result {
@@ -120,10 +120,14 @@ final class LeagueDetailsServiceTests: XCTestCase {
             case .failure(let error):
                 XCTAssertEqual((error as NSError).code, 500)
             }
+            expectation.fulfill()
         }
+
+        waitForExpectations(timeout: 1)
     }
 
     func testFetchEvents_Football_Success() {
+        let expectation = expectation(description: "fetchEvents football succeeds")
         let league = makeLeague(sport: .football)
         mockClient.result = .success(FootballFixturesResponse(result: [makeFootballEvent()]))
 
@@ -136,24 +140,32 @@ final class LeagueDetailsServiceTests: XCTestCase {
             case .failure:
                 XCTFail("Expected success but got failure")
             }
+            expectation.fulfill()
         }
+
+        waitForExpectations(timeout: 1)
     }
 
     func testFetchEvents_Football_Failure() {
+        let expectation = expectation(description: "fetchEvents football fails")
         let league = makeLeague(sport: .football)
-        mockClient.result = .failure(NSError(domain: "network", code: 404))
+        mockClient.shouldFail = true
 
         service.fetchEvents(league) { result in
             switch result {
             case .success:
                 XCTFail("Expected failure but got success")
             case .failure(let error):
-                XCTAssertEqual((error as NSError).code, 404)
+                XCTAssertEqual((error as NSError).code, 500)
             }
+            expectation.fulfill()
         }
+
+        waitForExpectations(timeout: 1)
     }
 
     func testFetchEvents_Basketball_Success() {
+        let expectation = expectation(description: "fetchEvents basketball succeeds")
         let league = makeLeague(sport: .basketball)
         mockClient.result = .success(BasketballFixturesResponse(result: [makeBasketballEvent()]))
 
@@ -162,27 +174,36 @@ final class LeagueDetailsServiceTests: XCTestCase {
             case .success(let events):
                 XCTAssertEqual(events.count, 1)
                 XCTAssertEqual(events.first?.homeTeam.name, "Lakers")
+                XCTAssertEqual(events.first?.awayTeam.name, "Bulls")
             case .failure:
                 XCTFail("Expected success but got failure")
             }
+            expectation.fulfill()
         }
+
+        waitForExpectations(timeout: 1)
     }
 
     func testFetchEvents_Basketball_Failure() {
+        let expectation = expectation(description: "fetchEvents basketball fails")
         let league = makeLeague(sport: .basketball)
-        mockClient.result = .failure(NSError(domain: "network", code: 404))
+        mockClient.shouldFail = true
 
         service.fetchEvents(league) { result in
             switch result {
             case .success:
                 XCTFail("Expected failure but got success")
             case .failure(let error):
-                XCTAssertEqual((error as NSError).code, 404)
+                XCTAssertEqual((error as NSError).code, 500)
             }
+            expectation.fulfill()
         }
+
+        waitForExpectations(timeout: 1)
     }
 
     func testFetchEvents_Tennis_Success() {
+        let expectation = expectation(description: "fetchEvents tennis succeeds")
         let league = makeLeague(sport: .tennis)
         mockClient.result = .success(TennisFixturesResponse(result: [makeTennisEvent()]))
 
@@ -191,27 +212,36 @@ final class LeagueDetailsServiceTests: XCTestCase {
             case .success(let events):
                 XCTAssertEqual(events.count, 1)
                 XCTAssertEqual(events.first?.homeTeam.name, "Nadal")
+                XCTAssertEqual(events.first?.awayTeam.name, "Djokovic")
             case .failure:
                 XCTFail("Expected success but got failure")
             }
+            expectation.fulfill()
         }
+
+        waitForExpectations(timeout: 1)
     }
 
     func testFetchEvents_Tennis_Failure() {
+        let expectation = expectation(description: "fetchEvents tennis fails")
         let league = makeLeague(sport: .tennis)
-        mockClient.result = .failure(NSError(domain: "network", code: 404))
+        mockClient.shouldFail = true
 
         service.fetchEvents(league) { result in
             switch result {
             case .success:
                 XCTFail("Expected failure but got success")
             case .failure(let error):
-                XCTAssertEqual((error as NSError).code, 404)
+                XCTAssertEqual((error as NSError).code, 500)
             }
+            expectation.fulfill()
         }
+
+        waitForExpectations(timeout: 1)
     }
 
     func testFetchEvents_Cricket_Success() {
+        let expectation = expectation(description: "fetchEvents cricket succeeds")
         let league = makeLeague(sport: .cricket)
         mockClient.result = .success(CricketFixturesResponse(result: [makeCricketEvent()]))
 
@@ -220,23 +250,31 @@ final class LeagueDetailsServiceTests: XCTestCase {
             case .success(let events):
                 XCTAssertEqual(events.count, 1)
                 XCTAssertEqual(events.first?.homeTeam.name, "India")
+                XCTAssertEqual(events.first?.awayTeam.name, "Australia")
             case .failure:
                 XCTFail("Expected success but got failure")
             }
+            expectation.fulfill()
         }
+
+        waitForExpectations(timeout: 1)
     }
 
     func testFetchEvents_Cricket_Failure() {
+        let expectation = expectation(description: "fetchEvents cricket fails")
         let league = makeLeague(sport: .cricket)
-        mockClient.result = .failure(NSError(domain: "network", code: 404))
+        mockClient.shouldFail = true
 
         service.fetchEvents(league) { result in
             switch result {
             case .success:
                 XCTFail("Expected failure but got success")
             case .failure(let error):
-                XCTAssertEqual((error as NSError).code, 404)
+                XCTAssertEqual((error as NSError).code, 500)
             }
+            expectation.fulfill()
         }
+
+        waitForExpectations(timeout: 1)
     }
 }
