@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "pngtree-default-avatar-profile-icon-gray-placeholder-vector-png-image_16213764.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "pngtree-default-avatar-profile-icon-gray-placeholder-vector-png-image_16213764-1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "pngtree-default-avatar-profile-icon-gray-placeholder-vector-png-image_16213764-2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lexend-ExtraBold.ttf">
+            <string>Lexend-ExtraBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="EventCell" customModule="Arena" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="402" height="250"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="402" height="250"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xI-DM-1OQ" userLabel="Main Content">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="250"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="date-container-01">
+                                <rect key="frame" x="141" y="15" width="120" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 19, 16:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3q-Ha-cuy">
+                                        <rect key="frame" x="10" y="6.5" width="100" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <color key="textColor" name="HeadingText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="PrimaryBackground"/>
+                                <constraints>
+                                    <constraint firstItem="c3q-Ha-cuy" firstAttribute="centerX" secondItem="date-container-01" secondAttribute="centerX" id="c-date"/>
+                                    <constraint firstAttribute="height" constant="30" id="h-date"/>
+                                    <constraint firstItem="c3q-Ha-cuy" firstAttribute="leading" secondItem="date-container-01" secondAttribute="leading" constant="10" id="iBT-Lw-HRc"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="w-date"/>
+                                    <constraint firstItem="c3q-Ha-cuy" firstAttribute="centerY" secondItem="date-container-01" secondAttribute="centerY" id="y-date"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AR-CH-b22">
+                                <rect key="frame" x="181" y="106.5" width="40.5" height="37.5"/>
+                                <fontDescription key="fontDescription" name="Lexend-ExtraBold" family="Lexend" pointSize="30"/>
+                                <color key="textColor" name="PrimaryBrand"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="left-side">
+                                <rect key="frame" x="0.0" y="55" width="181" height="185"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="cuw-Cb-92B">
+                                        <rect key="frame" x="50.5" y="32.5" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="h-h"/>
+                                            <constraint firstAttribute="width" constant="80" id="w-h"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Home Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdW-PT-PgZ">
+                                        <rect key="frame" x="10" y="120.5" width="161" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cuw-Cb-92B" firstAttribute="centerX" secondItem="left-side" secondAttribute="centerX" id="c-h-img"/>
+                                    <constraint firstItem="hdW-PT-PgZ" firstAttribute="leading" secondItem="left-side" secondAttribute="leading" constant="10" id="l-h-lbl"/>
+                                    <constraint firstAttribute="trailing" secondItem="hdW-PT-PgZ" secondAttribute="trailing" constant="10" id="r-h-lbl"/>
+                                    <constraint firstItem="hdW-PT-PgZ" firstAttribute="top" secondItem="cuw-Cb-92B" secondAttribute="bottom" constant="8" id="t-h-lbl"/>
+                                    <constraint firstItem="cuw-Cb-92B" firstAttribute="centerY" secondItem="left-side" secondAttribute="centerY" constant="-20" id="y-h-img"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="right-side">
+                                <rect key="frame" x="221.5" y="55" width="180.5" height="185"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="TSi-nP-rhs">
+                                        <rect key="frame" x="50" y="32.5" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="h-a"/>
+                                            <constraint firstAttribute="width" constant="80" id="w-a"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Away Team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBz-xz-uyp">
+                                        <rect key="frame" x="10" y="120.5" width="160.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="TSi-nP-rhs" firstAttribute="centerX" secondItem="right-side" secondAttribute="centerX" id="c-a-img"/>
+                                    <constraint firstItem="cBz-xz-uyp" firstAttribute="leading" secondItem="right-side" secondAttribute="leading" constant="10" id="l-a-lbl"/>
+                                    <constraint firstAttribute="trailing" secondItem="cBz-xz-uyp" secondAttribute="trailing" constant="10" id="r-a-lbl"/>
+                                    <constraint firstItem="cBz-xz-uyp" firstAttribute="top" secondItem="TSi-nP-rhs" secondAttribute="bottom" constant="8" id="t-a-lbl"/>
+                                    <constraint firstItem="TSi-nP-rhs" firstAttribute="centerY" secondItem="right-side" secondAttribute="centerY" constant="-20" id="y-a-img"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="CardBackground"/>
+                        <constraints>
+                            <constraint firstItem="date-container-01" firstAttribute="centerX" secondItem="9xI-DM-1OQ" secondAttribute="centerX" id="c-d-center"/>
+                            <constraint firstItem="date-container-01" firstAttribute="top" secondItem="9xI-DM-1OQ" secondAttribute="top" constant="15" id="c-d-top"/>
+                            <constraint firstItem="6AR-CH-b22" firstAttribute="centerX" secondItem="9xI-DM-1OQ" secondAttribute="centerX" id="c-vs-x"/>
+                            <constraint firstItem="6AR-CH-b22" firstAttribute="centerY" secondItem="9xI-DM-1OQ" secondAttribute="centerY" id="c-vs-y"/>
+                            <constraint firstAttribute="bottom" secondItem="left-side" secondAttribute="bottom" constant="10" id="l-side-b"/>
+                            <constraint firstItem="left-side" firstAttribute="leading" secondItem="9xI-DM-1OQ" secondAttribute="leading" id="l-side-l"/>
+                            <constraint firstItem="left-side" firstAttribute="trailing" secondItem="6AR-CH-b22" secondAttribute="leading" id="l-side-r"/>
+                            <constraint firstItem="left-side" firstAttribute="top" secondItem="date-container-01" secondAttribute="bottom" constant="10" id="l-side-t"/>
+                            <constraint firstAttribute="bottom" secondItem="right-side" secondAttribute="bottom" constant="10" id="r-side-b"/>
+                            <constraint firstItem="right-side" firstAttribute="leading" secondItem="6AR-CH-b22" secondAttribute="trailing" id="r-side-l"/>
+                            <constraint firstItem="right-side" firstAttribute="trailing" secondItem="9xI-DM-1OQ" secondAttribute="trailing" id="r-side-r"/>
+                            <constraint firstItem="right-side" firstAttribute="top" secondItem="date-container-01" secondAttribute="bottom" constant="10" id="r-side-t"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="top" secondItem="9xI-DM-1OQ" secondAttribute="top" id="ext-01"/>
+                <constraint firstAttribute="bottom" secondItem="9xI-DM-1OQ" secondAttribute="bottom" id="ext-02"/>
+                <constraint firstAttribute="leading" secondItem="9xI-DM-1OQ" secondAttribute="leading" id="ext-03"/>
+                <constraint firstAttribute="trailing" secondItem="9xI-DM-1OQ" secondAttribute="trailing" id="ext-04"/>
+            </constraints>
+            <size key="customSize" width="402" height="250"/>
+            <connections>
+                <outlet property="awayTeamImageView" destination="TSi-nP-rhs" id="lVV-el-sYh"/>
+                <outlet property="awayTeamLabel" destination="cBz-xz-uyp" id="G3P-jy-xFO"/>
+                <outlet property="dateTimeLabel" destination="c3q-Ha-cuy" id="zNr-Oa-24J"/>
+                <outlet property="homeTeamImageView" destination="cuw-Cb-92B" id="gHx-nk-UYB"/>
+                <outlet property="homeTeamLabel" destination="hdW-PT-PgZ" id="gKu-M6-Xd2"/>
+                <outlet property="vsLabel" destination="6AR-CH-b22" id="dD6-8O-6HU"/>
+            </connections>
+            <point key="canvasLocation" x="141" y="58"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="CardBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HeadingText">
+            <color red="0.066666666666666666" green="0.094117647058823528" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryBackground">
+            <color red="0.96862745098039216" green="0.97647058823529409" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryBrand">
+            <color red="0.0" green="0.34509803921568627" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
