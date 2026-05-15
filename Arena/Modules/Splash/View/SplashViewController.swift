@@ -78,11 +78,15 @@ class SplashViewController: UIViewController, SplashView {
         UIView.animate(withDuration: 0.3, delay: 1.3, options: .curveEaseOut) {
             self.progressBar.alpha = 1
         } completion: { _ in
-            UIView.animate(withDuration: 1.8, delay: 0.1, options: .curveEaseInOut) {
-                self.progressBar.setProgress(1.0, animated: true)
-            } completion: { _ in
-                self.presenter.splashAnimationDidFinish()
-            }
+            self.animateProgress()
+        }
+    }
+    
+    private func animateProgress() {
+        self.progressBar.setProgress(1.0, animated: true)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.presenter.splashAnimationDidFinish()
         }
     }
     

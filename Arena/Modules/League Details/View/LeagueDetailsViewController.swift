@@ -113,11 +113,11 @@ class LeagueDetailsViewController: UICollectionViewController, LeagueDetailsView
     }
 
     private func makeHorizontalListSection(_ section: LeagueDetailsSection) -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(160))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(120), heightDimension: .absolute(150))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(140), heightDimension: .absolute(160))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let layout = NSCollectionLayoutSection(group: group)

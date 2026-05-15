@@ -53,7 +53,7 @@ class LeagueCell: UITableViewCell {
         countryName.text = league.country
         leagueImage.sd_setImage(
             with: URL(string: league.imageUrl),
-            placeholderImage: UIImage(named: "league_placeholder")
+            placeholderImage: UIImage(named: league.sport.leagueImageName)
         )
         self.isFavorite = league.isFavorite
         favoriteButton.isHidden = !showFavoriteButton
@@ -61,7 +61,6 @@ class LeagueCell: UITableViewCell {
     }
 
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
-        print("Button physically tapped inside LeagueCell")
         delegate?.didToggleFavorite(for: self, isFavorite: isFavorite)
         updateFavoriteIcon(animated: true)
     }

@@ -21,4 +21,13 @@ enum Sport: String, CaseIterable {
         case .cricket: return "bg_cricket"
         }
     }
+    
+    var leagueImageName: String {
+        switch self {
+        case .football: return "football_league_placeholder"
+        case .basketball: return "basketball_league_placeholder"
+        case .tennis: return "tennis_league_placeholder"
+        case .cricket: return "cricket_league_placeholder"
+        }
+    }
 }
