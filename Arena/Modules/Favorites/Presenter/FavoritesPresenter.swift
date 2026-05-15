@@ -38,13 +38,16 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
     }
 
     func didSelectFavorite(at index: Int) {
-
-        if !connectivityManager.isConnected {
-            view?.showError("No internet connection.")
-            return
+        connectivityManager.checkRealConnection { [weak self] isConnected in
+            guard let self = self else { return }
+            
+            if isConnected {
+                let league = self.getFavorite(at: index)
+                self.view?.navigateToLeagueDetails(league: league)
+            } else {
+                self.view?.showError("No internet connection.")
+            }
         }
-        let league = getFavorite(at: index)
-        view?.navigateToLeagueDetails(league: league)
     }
 
     func didDeleteFavorite(at index: Int) {

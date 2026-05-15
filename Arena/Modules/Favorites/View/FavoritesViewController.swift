@@ -60,7 +60,7 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol  {
     }
 
     func showError(_ message: String) {
-        showAlert(title: "No Internet Connection", message: message)
+        showAlert(title: "Couldn't Fetch The League Data", message: message)
     }
 
     func deleteFavorite(at index: Int) {
@@ -98,8 +98,20 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Remove") { [weak self] _, _, completion in
-            self?.presenter.didDeleteFavorite(at: indexPath.row)
-            completion(true)
+            guard let self = self else { completion(false); return }
+            self.showConfirmationAlert(
+                title: "Remove Favorite",
+                message: "Are you sure you want to remove this league from your favorites?",
+                confirmTitle: "Remove",
+                cancelTitle: "Cancel",
+                onConfirm: {
+                    self.presenter.didDeleteFavorite(at: indexPath.row)
+                    completion(true)
+                },
+                onCancel: {
+                    completion(false)
+                }
+            )
         }
         deleteAction.image = UIImage(systemName: "heart.slash.fill")
         deleteAction.backgroundColor = .systemRed

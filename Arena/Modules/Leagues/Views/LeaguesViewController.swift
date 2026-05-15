@@ -1,3 +1,10 @@
+//
+//  LeaguesViewController.swift
+//  Arena
+//
+//  Created by Abdelrahman on 07/05/2026.
+//
+
 import UIKit
 
 class LeaguesViewController: UIViewController, LeaguesViewProtocol {
@@ -21,7 +28,18 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
         setupCustomTitleFont(title: sport.rawValue.capitalized)
         setupTableView()
         setupSearchBar()
-
+        setupKeyboardDismissal()
+    }
+    
+    
+    private func setupKeyboardDismissal() {
+        let tap = UITapGestureRecognizer(
+            target: view,
+            action: #selector(UIView.endEditing)
+        )
+        
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -30,12 +48,13 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
     }
 
     private func setupTableView() {
+        tableView.delaysContentTouches = false
         tableView.dataSource = self
         tableView.delegate = self
         let nib = UINib(nibName: LeaguesViewController.cellIdentifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: LeaguesViewController.cellIdentifier)
     }
-
+    
     private func setupSearchBar() {
         searchBar.delegate = self
     }
@@ -53,6 +72,7 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
 
     func showLeagues() {
         tableView.backgroundView = nil
+        view.bringSubviewToFront(tableView)
         tableView.reloadData()
     }
 
@@ -84,8 +104,8 @@ extension LeaguesViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LeaguesViewController.cellIdentifier, for: indexPath) as! LeagueCell
-        cell.configure(presenter.getLeague(at: indexPath.row))
         cell.delegate = self
+        cell.configure(presenter.getLeague(at: indexPath.row))
         return cell
     }
 
@@ -119,6 +139,19 @@ extension LeaguesViewController: UISearchBarDelegate {
 extension LeaguesViewController: LeagueCellDelegate {
     func didToggleFavorite(for cell: LeagueCell, isFavorite: Bool) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        presenter.didToggleFavorite(at: indexPath.row)
+        if isFavorite {
+            showConfirmationAlert(
+                title: "Remove Favorite",
+                message: "Are you sure you want to remove this league from your favorites?",
+                confirmTitle: "Remove",
+                cancelTitle: "Cancel",
+                onConfirm: {
+                    self.presenter.didToggleFavorite(at: indexPath.row)
+                }
+            )
+        } else {
+            presenter.didToggleFavorite(at: indexPath.row)
+        }
     }
 }
+
