@@ -23,6 +23,7 @@ class LeagueCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentView.clipsToBounds = false
         setupImageView()
         setupFavoriteButton()
     }
@@ -60,10 +61,11 @@ class LeagueCell: UITableViewCell {
     }
 
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
-        isFavorite.toggle()
-        updateFavoriteIcon(animated: true)
+        print("Button physically tapped inside LeagueCell")
         delegate?.didToggleFavorite(for: self, isFavorite: isFavorite)
+        updateFavoriteIcon(animated: true)
     }
+    
 
     private func updateFavoriteIcon(animated: Bool) {
         let imageName = isFavorite ? "heart.fill" : "heart"

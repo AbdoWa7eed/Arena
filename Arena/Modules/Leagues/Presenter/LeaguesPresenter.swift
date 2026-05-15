@@ -51,6 +51,7 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
         let newState = !league.isFavorite
         update(in: &allLeagues, key: league.key, isFavorite: newState)
         update(in: &filteredLeagues, key: league.key, isFavorite: newState)
+        view?.showLeagues()
     }
 
     func didSearch(query: String) {
